@@ -7,5 +7,5 @@ public void function1() {
 }
 
 public void function2() {
-
+	std::cout << "Hello World!" << std::endl;
 }
