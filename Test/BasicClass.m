@@ -16,4 +16,3 @@ classdef BasicClass
         end
     end
 end
-
