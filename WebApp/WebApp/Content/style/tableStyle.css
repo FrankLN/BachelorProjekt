@@ -1,0 +1,29 @@
+﻿table {
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: left;
+    font-weight: normal;
+    color: #555556;
+    font-family: calibri;
+    border: 2px solid #D4D4D4;
+    background-color: #E7E7E7;
+    padding: 3px;
+}
+
+table tr {
+    border-bottom: 1px solid #D4D4D4;
+}
+table tr:hover {
+    background: #FEFDCD;
+}
+
+table td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-family: Calibri;
+}
+table td.cellWithNumber {
+    text-align: center;
+}
