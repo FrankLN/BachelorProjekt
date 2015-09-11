@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2 id="myTitle" class="myTitles">Episode Adminstration</h2>
+<h2 id="myTitle" class="myTitles">@ViewBag.Header</h2>
 <table>
     <tr>
         <th></th>
@@ -15,7 +15,7 @@
     @foreach(var typeModel in Model)
     {
         <tr>
-            <td></td>
+            <td class="cellImage"><img src="~/Content/img/graph_icon.png" title="Show graph" /></td>
             <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
             <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
             <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>

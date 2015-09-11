@@ -39,6 +39,8 @@ namespace WebApp.Controllers
                 eMList.Add(new ViewModels.EpisodeViewModel(model, data.Count(modelItem => modelItem.EpisodeType == model), data.Select(m => m.TransmissionId).Distinct().Count()));
             }
 
+
+            ViewBag.Header = "Episode Adminstration";
             return View(eMList);
         }
     }
