@@ -1,0 +1,24 @@
+﻿@model List<WebApp.ViewModels.EpisodeViewModel>
+@using WebApp.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 id="myTitle" class="myTitles">Episode Adminstration</h2>
+<table>
+    <tr>
+        <th></th>
+        <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().EpisodeType)">@Html.LabelFor(model => Model.FirstOrDefault().EpisodeType)</th>
+        <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
+        <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
+    </tr>
+    @foreach(var typeModel in Model)
+    {
+        <tr>
+            <td></td>
+            <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
+            <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
+            <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
+        </tr>
+    }
+</table>
