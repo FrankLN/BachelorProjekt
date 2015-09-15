@@ -27,7 +27,7 @@ namespace WebApp.ViewModels
         [Tooltip("The procent of all transmissions where the episode is present")]
         public int ProcentTransmission { get; set; }
 
-        public void calcProcent(int totalTransmission) { ProcentTransmission = (int)( (double)(Transmissions) / (double)(totalTransmission) * 100 ); }
+        public void calcProcent(int totalTransmission) { ProcentTransmission = (int)Math.Round( (double)(Transmissions) / (double)(totalTransmission) * 100, 0 ); }
     }
 
     public class TooltipAttribute : DescriptionAttribute

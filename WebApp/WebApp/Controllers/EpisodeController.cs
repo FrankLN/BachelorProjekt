@@ -8,7 +8,8 @@ namespace WebApp.Controllers
 {
     public class EpisodeController : Controller
     {
-        public List<Models.DbModel> getFromDB()
+        // Mockup data created
+        protected List<Models.DbModel> getFromDB()
         {
             List<Models.DbModel> db = new List<Models.DbModel>();
 
@@ -39,9 +40,8 @@ namespace WebApp.Controllers
                 eMList.Add(new ViewModels.EpisodeViewModel(model, data.Count(modelItem => modelItem.EpisodeType == model), data.Select(m => m.TransmissionId).Distinct().Count()));
             }
 
-
             ViewBag.Header = "Episode Adminstration";
-            return View(eMList);
+            return View("Index", eMList);
         }
     }
 }

@@ -7,6 +7,8 @@
 *.o
 *.so
 *.suo
+*obj*
+*bin*
 
 # Packages #
 ############
