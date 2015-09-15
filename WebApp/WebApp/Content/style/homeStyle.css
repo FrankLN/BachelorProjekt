@@ -1,7 +1,10 @@
 ﻿body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   background: #FFF;
+  max-width: 1000px;
+  height: auto;
+  background-position: top center;
 }
 
 header { 
@@ -9,44 +12,62 @@ header {
     width: 100%;
 
 }
+
  
 .nav ul {
   list-style: none;
   background-color: #F0F0F0;
   text-align: left;
   padding: 4px;
-  margin: 0;
+  margin-bottom: 10px;
   border-style: solid;
   border-width: 20px;
   border-bottom-color: #286152;
   border-top: none;
   border-right: none;
   border-left: none;
+  width: auto;
+  position: center;
 }
+
 .nav li {
-  font-family: Calibri;
+  font-family: Arial;
   font-size: small;
   line-height: 30px;
   height: 34px;
+
 }
  
-.nav a {
+.nav a{
   text-decoration: none;
   background-color: #F0F0F0;
   color: #000000;
   display: block;
   transition: .3s background-color;
   padding: 4px;
+  margin-left: -4px;
+  margin-right: -4px;
+
 }
  
-.nav a:hover {
-  background-color: #E7E7E7;
+.nav .navbar-brand:hover {
+  background: #E7E7E7;
   color: #000000;
 }
- 
-.nav a.active {
-  background-color: #286152;
-  color: #FFF;
+
+
+ .nav .navbar-brand-active {
+    background: #286152;
+    color: #FFF;
+    padding-top: 15px;
+    /*-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;*/
+}
+
+  .nav .navbar-brand {
+  background: #F0F0F0;
+  color: #000000;
   cursor: default;
 }
  
@@ -56,7 +77,27 @@ header {
   }
 
 
-footer { 
+.footer { 
+    position: fixed;
     background-color: #666666;
+    color: #FFF;
+    width: 1000px;
+    height: 30px; 
+    font-family: Arial;
+    font-size: small;
+    text-align: start;
+
 }
+
+.terms{
+    float: left;
+    padding-left: 10px;
+    text-decoration: underline;
 }
+
+.copyright {
+    float: right;
+    padding-right: 10px;
+}
+
+

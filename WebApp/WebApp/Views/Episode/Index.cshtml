@@ -4,21 +4,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2 id="myTitle" class="myTitles">@ViewBag.Header</h2>
-<table>
-    <tr>
-        <th></th>
-        <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().EpisodeType)">@Html.LabelFor(model => Model.FirstOrDefault().EpisodeType)</th>
-        <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
-        <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
-    </tr>
-    @foreach(var typeModel in Model)
-    {
+    <h2 id="myTitle" class="myTitles">@ViewBag.Header</h2>
+    <table>
         <tr>
-            <td class="cellImage"><img src="~/Content/img/graph_icon.png" title="Show graph" /></td>
-            <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
-            <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
-            <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
+            <th></th>
+            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().EpisodeType)">@Html.LabelFor(model => Model.FirstOrDefault().EpisodeType)</th>
+            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
+            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
         </tr>
-    }
-</table>
+        @foreach (var typeModel in Model)
+        {
+            <tr>
+                <td class="cellImage"><img src="~/Content/img/graph_icon.png" title="Show graph" /></td>
+                <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
+                <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
+                <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
+            </tr>
+        }
+    </table>
+
+<p>
+    test
+</p>
