@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - WebApp</title>
     <link href="~/Content/style/tableStyle.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="~/Content/style/homeStyle.css?v=1" rel="stylesheet" type="text/css" />
 </head>
 <body>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,7 +25,24 @@
         </div>
     </div>*@
 
+    <header>
+        <h1>
+            Logo
+        </h1>
+
+    </header>
+
+    <div class="nav">
+        <ul>
+            <li class="episodeAdm">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
+            <li class="batteryAdm"><a href="#">Battery Administration</a></li>
+        </ul>
+    </div>
+
+
     <div class="container body-content">
+
+
         @RenderBody()
         <hr />
         <footer>

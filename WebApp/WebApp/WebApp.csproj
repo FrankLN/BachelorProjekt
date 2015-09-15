@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\graph_icon.png" />
+    <Content Include="Content\style\homeStyle.css" />
     <Content Include="Content\style\tableStyle.css" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
