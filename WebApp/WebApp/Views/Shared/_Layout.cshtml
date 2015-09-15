@@ -26,28 +26,41 @@
     </div>*@
 
     <header>
-        <h1>
-            Logo
-        </h1>
+        <h1> Logo</h1>
+
+        <h2> Login Info</h2>
 
     </header>
-
-    <div class="nav">
-        <ul>
-            <li class="episodeAdm">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
-            <li class="batteryAdm"><a href="#">Battery Administration</a></li>
-        </ul>
-    </div>
+    @if (ViewBag.Header == "Episode Administration") 
+    {
+        <div class="nav">
+            <ul>
+                <li class="active">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+                <li class="active">@Html.ActionLink("Battery Administration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+            </ul>
+        </div>
+    }
+    else
+    {
+        <div class="nav">
+            <ul>
+                <li class="episodeAdmin">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand-active"})</li>
+            </ul>
+        </div>
+    }
 
 
     <div class="container body-content">
-
-
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - WebApp</p>
-        </footer>
     </div>
+
+
+    <div class="footer">
+        <p class="terms"> Terms and conditions</p>
+        <p class="copyright">&copy; @DateTime.Now.Year - WebApp</p>
+    </div>
+
+
 </body>
 </html>

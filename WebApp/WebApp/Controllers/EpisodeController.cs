@@ -40,7 +40,7 @@ namespace WebApp.Controllers
             }
 
 
-            ViewBag.Header = "Episode Adminstration";
+            ViewBag.Header = "Episode Administration";
             return View(eMList);
         }
     }
