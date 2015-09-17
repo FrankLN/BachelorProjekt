@@ -76,28 +76,35 @@ header {
     margin-right: 4px;
   }
 
+  .container body-content {
+      display: block;
+      height: 600px;
+      width: auto;
+  }
+
 
 .footer { 
     position: fixed;
     background-color: #666666;
     color: #FFF;
     width: 1000px;
-    height: 30px; 
     font-family: Arial;
     font-size: small;
-    text-align: start;
-
+    padding-bottom: 3px;
+    padding-top: 3px;
 }
 
 .terms{
     float: left;
     padding-left: 10px;
     text-decoration: underline;
+    margin: auto;
 }
 
 .copyright {
     float: right;
     padding-right: 10px;
+    margin: auto;
 }
 
 
