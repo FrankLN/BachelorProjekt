@@ -8,59 +8,57 @@
     <link href="~/Content/style/homeStyle.css?v=1" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+    <wrapper>
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+        <header>
+            <h1> Logo</h1>
+
+            <h2> Login Info</h2>
+
+        </header>
+        @if (ViewBag.Header == "Episode Administration")
+        {
+            <div class="nav">
+                <ul>
+                    <li class="active">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+                    <li class="active">@Html.ActionLink("Battery Administration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
             </div>
+        }
+        else
+        {
+            <div class="nav">
+                <ul>
+                    <li class="episodeAdmin">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+                </ul>
+            </div>
+        }
+
+
+        <div class="container body-content">
+            @RenderBody()
         </div>
-    </div>*@
 
-    <header>
-        <h1> Logo</h1>
-
-        <h2> Login Info</h2>
-
-    </header>
-    @if (ViewBag.Header == "Episode Administration") 
-    {
-        <div class="nav">
-            <ul>
-                <li class="active">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand-active" })</li>
-                <li class="active">@Html.ActionLink("Battery Administration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-            </ul>
+        <div class="footer">
+            <p class="terms"> Terms and conditions</p>
+            <p class="copyright">&copy; @DateTime.Now.Year - WebApp</p>
         </div>
-    }
-    else
-    {
-        <div class="nav">
-            <ul>
-                <li class="episodeAdmin">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand-active"})</li>
-            </ul>
-        </div>
-    }
-
-
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-
-
-    <div class="footer">
-        <p class="terms"> Terms and conditions</p>
-        <p class="copyright">&copy; @DateTime.Now.Year - WebApp</p>
-    </div>
-
-
+    </wrapper>
 </body>
 </html>

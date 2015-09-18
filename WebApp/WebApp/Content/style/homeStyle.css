@@ -1,24 +1,47 @@
 ﻿body {
-  margin: 0 auto;
-  padding: 0;
-  background: #FFF;
-  max-width: 1000px;
-  height: auto;
-  background-position: top center;
+    background-color: #FFF;
+    background-size: 130%;
+    width: 1280px;
 }
 
+wrapper{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-size: auto;
+    display: block;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 976.844px;
+    line-height: 21.021px;
+    margin-bottom: 0px;
+    margin-left: 61.7962px;
+    margin-right: 61.7962px;
+    margin-top: 0px;
+    max-width: 90%;
+    min-width: 970px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+  /*margin-left: 30px;
+  background: 0;
+  width: 300px;
+  height: auto;
+  background-position: top center;*/
+}
+  
 header { 
     height: 100px; 
     width: 100%;
-
 }
 
- 
 .nav ul {
   list-style: none;
   background-color: #F0F0F0;
   text-align: left;
-  padding: 4px;
+  padding: 0px 0px 4px 4px;
   margin-bottom: 10px;
   border-style: solid;
   border-width: 20px;
@@ -27,14 +50,13 @@ header {
   border-right: none;
   border-left: none;
   width: auto;
-  position: center;
 }
 
 .nav li {
   font-family: Arial;
   font-size: small;
   line-height: 30px;
-  height: 34px;
+  height: 30px;
 
 }
  
@@ -43,11 +65,10 @@ header {
   background-color: #F0F0F0;
   color: #000000;
   display: block;
-  transition: .3s background-color;
+  /*transition: .3s background-color;*/
   padding: 4px;
   margin-left: -4px;
   margin-right: -4px;
-
 }
  
 .nav .navbar-brand:hover {
@@ -56,13 +77,15 @@ header {
 }
 
 
- .nav .navbar-brand-active {
+.nav .navbar-brand-active {
     background: #286152;
     color: #FFF;
     padding-top: 15px;
-    /*-moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;*/
+    padding-bottom: 15px;
+    border-radius: 5px 5px 0px 0px; 
+    -moz-border-radius: 5px 5px 0px 0px; 
+    -webkit-border-radius: 5px 5px 0px 0px; 
+    margin-top: -15px;
 }
 
   .nav .navbar-brand {
@@ -79,15 +102,18 @@ header {
   .container body-content {
       display: block;
       height: 600px;
+      position: page;
       width: auto;
   }
 
 
 .footer { 
-    position: fixed;
+    position: absolute;
+    bottom: 0;
     background-color: #666666;
     color: #FFF;
-    width: 1000px;
+    max-width: 90%;
+    min-width: 970px;
     font-family: Arial;
     font-size: small;
     padding-bottom: 3px;
