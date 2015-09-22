@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
     background-color: #FFF;
     background-size: 130%;
     width: 1280px;
@@ -98,6 +98,27 @@ header {
     display: inline-block;
     margin-right: 4px;
   }
+  
+  .datePicker{
+      font-size: smaller;
+      background-color: #FFF;
+      padding: 5px;
+  }
+  .date-picker1 {
+      float: left;
+      padding-right: 10px;
+      line-height: 0px;
+      margin-right: 15px;
+
+  }
+
+  .date-picker2{
+      float: left;
+      padding-right: 10px;
+      line-height: 0px;
+      margin-left: 15px;
+
+  }
 
   .container body-content {
       display: block;
@@ -105,6 +126,8 @@ header {
       position: page;
       width: auto;
   }
+
+
 
 
 .footer { 
@@ -132,5 +155,3 @@ header {
     padding-right: 10px;
     margin: auto;
 }
-
-

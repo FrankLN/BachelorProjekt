@@ -6,6 +6,12 @@
     <title>@ViewBag.Title - WebApp</title>
     <link href="~/Content/style/tableStyle.css?v=1" rel="stylesheet" type="text/css" />
     <link href="~/Content/style/homeStyle.css?v=1" rel="stylesheet" type="text/css" />
+  
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="~/Content/script/datePicker.js"></script>
 </head>
 <body>
     <wrapper>
@@ -50,15 +56,23 @@
             </div>
         }
 
+        <div class="datePicker">
+            <p class="date-picker1">Date from:</p>
+            <input class='date-picker1' />
+            <p class="date-picker2">Date to:</p>
+            <input class='date-picker2' />
+        </div>
 
         <div class="container body-content">
             @RenderBody()
         </div>
 
+
         <div class="footer">
             <p class="terms"> Terms and conditions</p>
             <p class="copyright">&copy; @DateTime.Now.Year - WebApp</p>
         </div>
+>>>>>>> 85d2d971acf9f143091647001512769d044c9851
     </wrapper>
 </body>
 </html>
