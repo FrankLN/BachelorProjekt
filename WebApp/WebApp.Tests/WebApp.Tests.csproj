@@ -84,12 +84,6 @@
     <Compile Include="ViewModel.Test\EpisodeViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApp\WebApp.csproj">
-      <Project>{3E610F12-D461-41B3-B066-BFC9472D1083}</Project>
-      <Name>WebApp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

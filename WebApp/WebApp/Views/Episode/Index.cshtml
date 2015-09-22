@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
+<<<<<<< HEAD
 <script src="~/Content/script/popupScript.js"></script>
 
 
@@ -32,3 +33,22 @@
         <p>Content you want the user to see goes here.</p>
     </div>
 </div>
+=======
+    <table>
+        <tr>
+            <th></th>
+            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().EpisodeType)">@Html.LabelFor(model => Model.FirstOrDefault().EpisodeType)</th>
+            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
+            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
+        </tr>
+        @foreach (var typeModel in Model)
+        {
+            <tr>
+                <td class="graphInputButton"> <input type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph" ></input> </td>
+                <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
+                <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
+                <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
+            </tr>
+        }
+    </table>
+>>>>>>> 5ed183ead1cf08f5312210ca5256c884da5080e4

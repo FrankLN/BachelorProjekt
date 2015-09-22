@@ -10,5 +10,6 @@ namespace WebApp.Models
     {
         public string EpisodeType { get; set; }
         public int TransmissionId { get; set; }
+        public string Date { get; set; }
     }
 }
