@@ -46,8 +46,14 @@ namespace WebApp.Controllers
                                                                 });
             }
 
-            ViewBag.DateBegin = data.Min(m => m.Date); //20150918153452
-            ViewBag.DateEnd = data.Max(m => m.Date); //20151220113452
+            string d = data.Min(m => m.Date);
+            d = d.Substring(6, 2) + "/" + d.Substring(4, 2) + "/" + d.Substring(0, 4);
+
+            string de = data.Max(m => m.Date);
+            de = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
+
+            ViewBag.DateBegin = d; //20150918153452 ~ 09/18/2015
+            ViewBag.DateEnd = de; //20151220113452 ~ 20/12/2015
             ViewBag.Header = "Episode Administration";
             return View("Index", eMList);
         }
@@ -70,6 +76,9 @@ namespace WebApp.Controllers
                                                                             data.Select(m => m.TransmissionId).Distinct().Count()),
                 });
             }
+
+            db = db.Substring(6, 2) + "/" + db.Substring(4, 2) + "/" + db.Substring(0, 4);
+            de = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
 
             ViewBag.DateBegin = db;
             ViewBag.DateEnd = de; 

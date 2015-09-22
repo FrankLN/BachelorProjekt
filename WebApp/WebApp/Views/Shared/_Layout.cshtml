@@ -11,7 +11,7 @@
     <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-    <script src="~/Content/script/datePicker.js"></script>
+    <script src="~/Content/script/datePicker.js?v=1"></script>
 </head>
 <body>
     <wrapper>
@@ -58,9 +58,9 @@
 
         <div class="datePicker">
             <p class="date-picker1">Date from:</p>
-            <input class='date-picker1' />
+            <input id="dpb" class='date-picker1' value="@ViewBag.DateBegin" onchange="alertFunction('dpb')" />
             <p class="date-picker2">Date to:</p>
-            <input class='date-picker2' />
+            <input id="dpe" class='date-picker2' value="@ViewBag.DateEnd" onchange="alertFunction('dpe')"/>
         </div>
 
         <div class="container body-content">
