@@ -33,6 +33,21 @@ table td {
 table td.cellWithNumber {
     text-align: center;
 }
-table td.cellImage {
-    padding:6px;
+
+
+
+.graphButton {
+    margin:3px;
 }
+ 
+table td.cellImage #graphInputButton {
+ background: url("/Content/img/graph_icon.png") no-repeat;
+ opacity: 0;
+ -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+ filter: alpha(opacity=0);
+ width: 67px;
+ height: 26px;
+ cursor: pointer;
+}
+
+
