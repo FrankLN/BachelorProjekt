@@ -88,6 +88,7 @@
   <ItemGroup>
     <Content Include="Content\img\graph_icon.png" />
     <Content Include="Content\script\datePicker.js" />
+    <Content Include="Content\script\popupScript.js" />
     <Content Include="Content\style\homeStyle.css" />
     <Content Include="Content\style\datepickerStyle.css" />
     <Content Include="Content\style\tableStyle.css" />

@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
+<script src="~/Content/script/popupScript.js"></script>
+
 
 
     <table>
@@ -15,8 +17,8 @@
         @foreach (var typeModel in Model)
         {
             <tr>
-                <td class="graphInputButton"> <input type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph" ></input> </td>
-                <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
+                <td class="graphInputButton"> <input type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph" onclick="overlay()"></td>
+                <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType) </td>
                 <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
                 <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
             </tr>
@@ -24,6 +26,9 @@
     </table>
 
 
-
-
-
+<div id="overlay">
+    <div>
+        <a title="Close" onclick="overlay()" class="close">X</a>
+        <p>Content you want the user to see goes here.</p>
+    </div>
+</div>

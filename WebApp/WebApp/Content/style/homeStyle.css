@@ -82,9 +82,9 @@ header {
     color: #FFF;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-radius: 5px 5px 0px 0px; 
     -moz-border-radius: 5px 5px 0px 0px; 
     -webkit-border-radius: 5px 5px 0px 0px; 
+    border-radius: 5px;
     margin-top: -15px;
 }
 
@@ -101,8 +101,8 @@ header {
   
   .datePicker{
       font-size: smaller;
-      background-color: #FFF;
-      padding: 5px;
+      background-color: #FFF; 
+
   }
   .date-picker1 {
       float: left;
