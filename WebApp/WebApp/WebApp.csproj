@@ -87,7 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\graph_icon.png" />
+    <Content Include="Content\script\chartScript.js" />
     <Content Include="Content\script\datePicker.js" />
+    <Content Include="Content\script\popupScript.js" />
     <Content Include="Content\style\homeStyle.css" />
     <Content Include="Content\style\datepickerStyle.css" />
     <Content Include="Content\style\tableStyle.css" />
@@ -135,7 +137,20 @@
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\MochiKit\customize.html" />
+    <Content Include="Scripts\MochiKit\MochiKit.js" />
+    <Content Include="Scripts\MochiKit\__package__.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PlotKit\Base.js" />
+    <Content Include="Scripts\PlotKit\Canvas.js" />
+    <Content Include="Scripts\PlotKit\EasyPlot.js" />
+    <Content Include="Scripts\PlotKit\excanvas.js" />
+    <Content Include="Scripts\PlotKit\Layout.js" />
+    <Content Include="Scripts\PlotKit\PlotKit.js" />
+    <Content Include="Scripts\PlotKit\PlotKit_Packed.js" />
+    <Content Include="Scripts\PlotKit\SVG.js" />
+    <Content Include="Scripts\PlotKit\SweetCanvas.js" />
+    <Content Include="Scripts\PlotKit\SweetSVG.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Episode\Index.cshtml" />
   </ItemGroup>
@@ -144,7 +159,7 @@
     <Compile Include="Controllers\EpisodeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
-   <Compile Include="Helpers\ModelHelpers.cs" />
+    <Compile Include="Helpers\ModelHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,6 +174,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Scripts\PlotKit\dummy.svg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
