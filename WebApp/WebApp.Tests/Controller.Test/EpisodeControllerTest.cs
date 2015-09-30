@@ -19,5 +19,15 @@ namespace WebApp.Tests.Controller.Test
 
             Assert.AreEqual("Index", result.ViewName);
         }
+
+        [TestMethod]
+        public void IndexViewTestWithArguments()
+        {
+            var episodeController = new WebApp.Controllers.EpisodeController();
+
+            var result = episodeController.Index("20150918153452", "20150918153452") as ViewResult;
+
+            Assert.AreEqual("Index", result.ViewName);
+        }
     }
 }

@@ -77,15 +77,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.Test\EpisodeControllerTest.cs" />
-    <Compile Include="Helpers\StubHttpContextForRouting.cs" />
-    <Compile Include="Helpers\TestEpisodeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Routing.Test\RoutingEpisodeControllerTest.cs" />
-    <Compile Include="ViewModel.Test\EpisodeViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp\WebApp.csproj">
+      <Project>{3e610f12-d461-41b3-b066-bfc9472d1083}</Project>
+      <Name>WebApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
