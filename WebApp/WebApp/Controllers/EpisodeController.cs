@@ -52,7 +52,7 @@ namespace WebApp.Controllers
             string de = data.Max(m => m.Date);
             de = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
 
-            ViewBag.DateBegin = d; //20150918153452 ~ 09/18/2015
+            ViewBag.DateBegin = d; //20150918153452 ~ 18/09/2015
             ViewBag.DateEnd = de; //20151220113452 ~ 20/12/2015
             ViewBag.Header = "Episode Administration";
             return View("Index", eMList);
