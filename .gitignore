@@ -9,7 +9,7 @@
 *.suo
 *obj*
 *bin*
-.user
+*.user
 
 # Packages #
 ############
