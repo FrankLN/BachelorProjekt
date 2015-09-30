@@ -79,6 +79,7 @@
     <Compile Include="Controller.Test\EpisodeControllerTest.cs" />
     <Compile Include="Model.Test\DbModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels.Test\EpisodeViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
