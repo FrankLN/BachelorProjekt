@@ -15,9 +15,9 @@ namespace WebApp.Helpers
             var exp = (MemberExpression)expression.Body;
             foreach (Attribute attribute in exp.Expression.Type.GetProperty(exp.Member.Name).GetCustomAttributes(false))
             {
-                if (typeof(ViewModels.TooltipAttribute) == attribute.GetType())
+                if (typeof(Helpers.TooltipAttribute) == attribute.GetType())
                 {
-                    return MvcHtmlString.Create(((ViewModels.TooltipAttribute)attribute).Description);
+                    return MvcHtmlString.Create(((Helpers.TooltipAttribute)attribute).Description);
                 }
             }
             return MvcHtmlString.Create("");

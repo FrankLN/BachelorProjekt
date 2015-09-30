@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataPoint.cs" />
+    <Compile Include="ExcelWriter.cs" />
+    <Compile Include="GeneratePatient.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="PredictData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
