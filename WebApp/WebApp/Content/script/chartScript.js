@@ -1,4 +1,5 @@
-﻿function drawGraph() {
+﻿function drawGraph(newestYear) {
+    console.log(newestYear)
     $('#container').highcharts({
         data: {
             table: 'datatable'
@@ -12,7 +13,7 @@
         yAxis: {
             allowDecimals: false,
             title: {
-                text: 'Transmissions'
+                text: 'Transmissions ' + newestYear
             }
         },
         tooltip: {

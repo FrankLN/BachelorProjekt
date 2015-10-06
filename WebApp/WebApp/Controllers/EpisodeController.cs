@@ -71,9 +71,9 @@ namespace WebApp.Controllers
                 eMList.Add(new ViewModels.EpisodeViewModel()
                 {
                     EpisodeType = model,
-                    Transmissions = data.Count(modelItem => modelItem.EpisodeType == model),
-                    ProcentTransmission = Helpers.ModelHelpers.calcProcent(data.Count(modelItem => modelItem.EpisodeType == model),
-                                                                            data.Select(m => m.TransmissionId).Distinct().Count()),
+                    Transmissions = data.Where(modelItem => modelItem.EpisodeType == model).Select(modelItem => modelItem.TransmissionId).Distinct().Count(),
+                    ProcentTransmission = Helpers.ModelHelpers.calcProcent(data.Where(modelItem => modelItem.EpisodeType == model).Select(modelItem => modelItem.TransmissionId).Distinct().Count(),
+                                                                            data.Select(m => m.TransmissionId).Distinct().Count())
                 });
             }
 
@@ -84,6 +84,70 @@ namespace WebApp.Controllers
             ViewBag.DateEnd = de; 
             ViewBag.Header = "Episode Administration";
             return View("Index", eMList);
+        }
+
+        [HttpGet]
+        public JsonResult getGraphData(string episodeType, string db, string de)
+        {
+            ViewModels.GraphViewModel result = new ViewModels.GraphViewModel();
+            var data2 = getFromDB();
+            var data = data2.Where(m => long.Parse(m.Date) >= long.Parse(db) && long.Parse(m.Date) <= long.Parse(de) && m.EpisodeType == episodeType);
+
+            result.newestYear = data.Max(m => long.Parse(m.Date)).ToString();
+            result.newestYear = result.newestYear.Substring(0,4);
+
+            List<int> transmissionId = new List<int>();
+
+            foreach(var model in data)
+            {
+                if(model.Date.Substring(0,4) == result.newestYear && !transmissionId.Contains(model.TransmissionId))
+                {
+                    transmissionId.Add(model.TransmissionId);
+                    switch (model.Date.Substring(4, 2))
+                    {
+                        case "01":
+                            result.Jan++;
+                            break;
+                        case "02":
+                            result.Feb++;
+                            break;
+                        case "03":
+                            result.Mar++;
+                            break;
+                        case "04":
+                            result.Apr++;
+                            break;
+                        case "05":
+                            result.May++;
+                            break;
+                        case "06":
+                            result.Jun++;
+                            break;
+                        case "07":
+                            result.Jul++;
+                            break;
+                        case "08":
+                            result.Aug++;
+                            break;
+                        case "09":
+                            result.Sep++;
+                            break;
+                        case "10":
+                            result.Oct++;
+                            break;
+                        case "11":
+                            result.Nov++;
+                            break;
+                        case "12":
+                            result.Dec++;
+                            break;
+                        
+                    }
+
+                }
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

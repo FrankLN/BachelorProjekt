@@ -4,8 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<script src="~/Content/script/popupScript.js?v=1"></script>
-<script src="~/Content/script/chartScript.js?v=1"></script>
+<script src="~/Content/script/popupScript.js?v=2"></script>
+<script src="~/Content/script/chartScript.js?v=2"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
@@ -36,7 +36,7 @@
         <a title="Close" onclick="overlay('close')" class="close">X</a>
         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
-        <table id="datatable">
+        <table id="datatable" style="visibility:hidden">
             <thead id="graphHead">
             </thead>
             <tbody id="graphData">
