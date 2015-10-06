@@ -40,9 +40,9 @@ namespace WebApp.Controllers
             foreach(var model in data.Select(m => m.EpisodeType).Distinct() )
             {
                 eMList.Add(new ViewModels.EpisodeViewModel() {  EpisodeType = model, 
-                                                                Transmissions = data.Count(modelItem => modelItem.EpisodeType == model), 
-                                                                ProcentTransmission = Helpers.ModelHelpers.calcProcent(data.Count(modelItem => modelItem.EpisodeType == model), 
-                                                                                                                        data.Select(m => m.TransmissionId).Distinct().Count()),
+                                                                Transmissions = data.Where(modelItem => modelItem.EpisodeType == model).Select(modelItem => modelItem.TransmissionId).Distinct().Count(), 
+                                                                ProcentTransmission = Helpers.ModelHelpers.calcProcent(data.Where(modelItem => modelItem.EpisodeType == model).Select(modelItem => modelItem.TransmissionId).Distinct().Count(), 
+                                                                                                                        data.Select(m => m.TransmissionId).Distinct().Count())
                                                                 });
             }
 
