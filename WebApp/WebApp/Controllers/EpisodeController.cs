@@ -13,18 +13,18 @@ namespace WebApp.Controllers
         {
             List<Models.DbModel> db = new List<Models.DbModel>();
 
-            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 1, Date = "20151220113452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Shock", TransmissionId = 1, Date = "20150926103452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 2, Date = "20150927213452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 2, Date = "20151009063452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 3, Date = "20151016123452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Shock", TransmissionId = 4	, Date = "20151020053452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 4	, Date = "20151108013452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5	, Date = "20151112153452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5	, Date = "20151122053452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5	, Date = "20151126043452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 6	, Date = "20151204073452" });
-            db.Add(new Models.DbModel() { EpisodeType = "Power failure", TransmissionId = 7, Date = "20150918153452" });
+            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 1, Date = "20151220113452", Patient="Egon Olsen" });
+            db.Add(new Models.DbModel() { EpisodeType = "Shock", TransmissionId = 1, Date = "20150926103452", Patient = "Egon Olsen" });
+            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 2, Date = "20150927213452", Patient = "Benny" });
+            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 2, Date = "20151009063452", Patient = "Benny" });
+            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 3, Date = "20151016123452", Patient = "Kjeld" });
+            db.Add(new Models.DbModel() { EpisodeType = "Shock", TransmissionId = 4, Date = "20151020053452", Patient = "Egon Olsen" });
+            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 4, Date = "20151108013452", Patient = "Egon Olsen" });
+            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5, Date = "20151112153452", Patient = "Benny" });
+            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5, Date = "20151122053452", Patient = "Benny" });
+            db.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5, Date = "20151126043452", Patient = "Benny" });
+            db.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 6, Date = "20151204073452", Patient = "Kjeld" });
+            db.Add(new Models.DbModel() { EpisodeType = "Power failure", TransmissionId = 7, Date = "20150918153452", Patient = "Egon Olsen" });
 
 
             return db;
@@ -85,6 +85,20 @@ namespace WebApp.Controllers
             ViewBag.Header = "Episode Administration";
             return View("Index", eMList);
         }
+
+        [HttpGet]
+        public JsonResult getPatients()
+        {
+            List<string> result = new List<string>();
+
+            foreach(var patient in getFromDB().Select(m => m.Patient).Distinct())
+            {
+                result.Add(patient);
+            }
+
+            return result;
+        }
+
 
         [HttpGet]
         public JsonResult getGraphData(string episodeType, string db, string de)
