@@ -96,7 +96,7 @@ namespace WebApp.Controllers
                 result.Add(patient);
             }
 
-            return result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
 
