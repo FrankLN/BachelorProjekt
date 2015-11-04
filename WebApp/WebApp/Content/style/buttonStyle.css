@@ -11,14 +11,22 @@
    }
 
 .patientButton button:hover {
-    background: #aaacad;
+    background: #E7E7E7;
     color: #000000;
     cursor: pointer;       
     }
 
 .patientButton button:active {
-   background: #4f4f4f;
+   background: #E7E7E7;
    }
+
+#dialog {
+     background-color: #fff;
+     min-width: 400px;
+     min-height: 400px;
+}
+
+
 
 
 /*.popupPatient {
