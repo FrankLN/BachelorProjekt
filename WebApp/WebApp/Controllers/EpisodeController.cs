@@ -8,6 +8,8 @@ namespace WebApp.Controllers
 {
     public class EpisodeController : Controller
     {
+        WebApp.Models.pacemakerdataEntities db = new Models.pacemakerdataEntities();
+
         // Mockup data created
         protected List<Models.DbModel> getFromDB()
         {
@@ -34,6 +36,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            var temp = db.pacemakerdataview;
             var data = getFromDB();
             List<ViewModels.EpisodeViewModel> eMList = new List<ViewModels.EpisodeViewModel>();
 

@@ -39,11 +39,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +134,23 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\PacemakerDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PacemakerDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PacemakerDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PacemakerDB.edmx</DependentUpon>
+      <LastGenOutput>PacemakerDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PacemakerDB.edmx.diagram">
+      <DependentUpon>PacemakerDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PacemakerDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PacemakerDB.edmx</DependentUpon>
+      <LastGenOutput>PacemakerDB.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -165,6 +189,24 @@
     </Compile>
     <Compile Include="Helpers\TooltipAttribute.cs" />
     <Compile Include="Models\DbModel.cs" />
+    <Compile Include="Models\pacemakerdataview.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PacemakerDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PacemakerDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PacemakerDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PacemakerDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PacemakerDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
@@ -189,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

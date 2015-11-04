@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="pacemakerdataModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.pacemakerdata.pacemakerdataview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pacemakerdataview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="transmissionDate" />
+          </Key>
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="episodeName" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="transmissionDate" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="episodeDate" Type="varchar" MaxLength="14" />
+          <Property Name="pacemakerSerialNumber" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="pacemakerdataModelStoreContainer">
+          <EntitySet Name="pacemakerdataview" EntityType="Self.pacemakerdataview" store:Type="Views" store:Schema="pacemakerdata">
+            <DefiningQuery>SELECT
+`pacemakerdataview`.`firstName`, 
+`pacemakerdataview`.`lastName`, 
+`pacemakerdataview`.`episodeName`, 
+`pacemakerdataview`.`ID`, 
+`pacemakerdataview`.`transmissionDate`, 
+`pacemakerdataview`.`episodeDate`, 
+`pacemakerdataview`.`pacemakerSerialNumber`, 
+`pacemakerdataview`.`name`, 
+`pacemakerdataview`.`type`
+FROM `pacemakerdataview` AS `pacemakerdataview`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pacemakerdataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pacemakerdataview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="transmissionDate" />
+          </Key>
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="episodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="transmissionDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="episodeDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="pacemakerSerialNumber" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="pacemakerdataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pacemakerdataview" EntityType="Self.pacemakerdataview" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pacemakerdataModelStoreContainer" CdmEntityContainer="pacemakerdataEntities">
+          <EntitySetMapping Name="pacemakerdataview">
+            <EntityTypeMapping TypeName="pacemakerdataModel.pacemakerdataview">
+              <MappingFragment StoreEntitySet="pacemakerdataview">
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="episodeName" ColumnName="episodeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="transmissionDate" ColumnName="transmissionDate" />
+                <ScalarProperty Name="episodeDate" ColumnName="episodeDate" />
+                <ScalarProperty Name="pacemakerSerialNumber" ColumnName="pacemakerSerialNumber" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
