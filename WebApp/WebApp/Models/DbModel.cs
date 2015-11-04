@@ -33,5 +33,6 @@ namespace WebApp.Models
                 else throw new ArgumentOutOfRangeException(); 
             } 
         }
+        public string Patient { get; set; }
     }
 }
