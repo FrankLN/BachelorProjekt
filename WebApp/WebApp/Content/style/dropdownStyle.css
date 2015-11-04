@@ -1,8 +1,7 @@
 ﻿.dropdown {
     width: 200px;
-    border: 1px solid silver;
     cursor: pointer; /* use correct mouse pointer when hovering over the dropdown */
-    padding: 10px;
+    padding: 6px;
     position: relative;
     margin: 0 auto;
     -webkit-touch-callout: none;
@@ -24,12 +23,13 @@
     top: 50%;
     right: 10px;
     margin-top: -3px;
+    cursor: pointer;
 }
 
 /* Reverse the CSS arrow when the dropdown is active */
 .dropdown.is-active:after {
     border-bottom-color: #000;
-    border-top-color: #fff;
+    border-top-color: #E7E7E7;
     margin-top: -9px;
 }
 
@@ -41,7 +41,6 @@
     position: absolute;
     top: 100%; /* align the dropdown right below the dropdown text */
     border: inherit;
-    border-top: none;
     left: -1px; /* align the dropdown to the left */
     right: -1px; /* align the dropdown to the right */
     opacity: 0; /* hide the dropdown */
@@ -61,8 +60,9 @@
 
 
 .dropdown-list li label {
+    background-color: #FFFFFF;
     display: block;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid #D4D4D4;
     padding: 10px;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -72,8 +72,8 @@
 }
  
 .dropdown-list li label:hover {
-    background-color: #c41230;
-    color: white;
+    background-color: #FEFDCD;
+    color: #555556;
 }
 
 .dropdown label:target h2:after {
@@ -82,7 +82,7 @@
     position: absolute;
     width: 0;
     border: 15px solid transparent;
-    border-left-color: #00B2E0;
+    border-left-color: #D4D4D4;
     top: 20%;
     left: 100%;
 }
