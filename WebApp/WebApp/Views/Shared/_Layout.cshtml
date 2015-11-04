@@ -7,12 +7,23 @@
     <title>@ViewBag.Title - WebApp</title>
     <link href="~/Content/style/tableStyle.css?v=1" rel="stylesheet" type="text/css" />
     <link href="~/Content/style/homeStyle.css?v=2" rel="stylesheet" type="text/css" />
-  
+    <link href="~/Content/style/buttonStyle.css?v=2" rel="stylesheet" type="text/css" />
+    <link href="~/Content/style/dropdownStyle.css?v=2" rel="stylesheet" type="text/css" />
+   
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  
 
     <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script src="~/Content/script/datePicker.js?v=1"></script>
+    <script src="~/Content/script/popupPatientScript.js?v=1"></script>
+    <script src="~/Content/script/dropdownScript.js?v=1"></script>
 </head>
 <body>
     <wrapper>
@@ -34,9 +45,7 @@
             </div>*@
         <header>
             <h1> Logo</h1>
-
             <h2> Login Info</h2>
-
         </header>
         @if (ViewBag.Header == "Episode Administration")
         {
@@ -56,23 +65,30 @@
                 </ul>
             </div>
         }
-
         <div class="datePicker">
             <p class="date-picker1">Date from:</p>
             <input id="dpb" class='date-picker1' value="@ViewBag.DateBegin" onchange="alertFunction('dpb')" />
             <p class="date-picker2">Date to:</p>
-            <input id="dpe" class='date-picker2' value="@ViewBag.DateEnd" onchange="alertFunction('dpe')"/>
+            <input id="dpe" class='date-picker2' value="@ViewBag.DateEnd" onchange="alertFunction('dpe')" />
+        </div>
+        <div class="patientButton">
+            <button type="button" id="opener" class="patientButton">Choose Patient</button>
         </div>
 
-        <div class="container body-content">
-            @RenderBody()
+        <div id="dialog" class="popupPatient" title="Choose Patient">
+            
         </div>
 
 
-        <div class="footer">
-            <p class="terms"> Terms and conditions</p>
-            <p class="copyright">&copy; @DateTime.Now.Year - WebApp</p>
-        </div>
+                <div class="container body-content">
+                    @RenderBody()
+                </div>
+            
+
+                <div class="footer">
+                    <p class="terms"> Terms and conditions</p>
+                    <p class="copyright">&copy; @DateTime.Now.Year - WebApp</p>
+                </div>
     </wrapper>
 </body>
 </html>

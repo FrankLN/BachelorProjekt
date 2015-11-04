@@ -110,17 +110,18 @@ header {
     display: inline-block;
     margin-right: 4px;
   }
-  
-  .datePicker{
-      font-size: smaller;
-      background-color: #FFF; 
 
-  }
+.datePicker {
+    font-size: smaller;
+    background-color: #FFF;
+    font-family: Calibri;
+}
   .date-picker1 {
       float: left;
       padding-right: 10px;
       line-height: 0px;
       margin-right: 15px;
+      font-family: Calibri;
 
   }
 
@@ -129,8 +130,11 @@ header {
       padding-right: 10px;
       line-height: 0px;
       margin-left: 15px;
+      font-family: Calibri;
 
   }
+
+
 
   .container body-content {
       display: block;
