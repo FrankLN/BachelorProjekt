@@ -1,29 +1,21 @@
 ﻿$(function(){
-    $('.date-picker1').datepicker();
+    $('.date-picker1').datepicker({ dateFormat: 'dd/mm/yy' });
 })
 
 $(function(){
-    $('.date-picker2').datepicker();
+    $('.date-picker2').datepicker({ dateFormat: 'dd/mm/yy' });
 })
 
 function alertFunction(caller) {
     var dpb = document.getElementById("dpb");
     var dpe = document.getElementById("dpe");
 
-    if (caller == 'dpb') {
-        var dateBegin = dpb.value.split("/");
-        dateBegin = dateBegin[2] + dateBegin[0] + dateBegin[1] + "000000";
+    var dateBegin = dpb.value.split("/");
+    dateBegin = dateBegin[2] + dateBegin[1] + dateBegin[0] + "000000";
 
-        var dateEnd = dpe.value.split("/");
-        dateEnd = dateEnd[2] + dateEnd[1] + dateEnd[0] + "000000";
-    }
-    else {
-        var dateBegin = dpb.value.split("/");
-        dateBegin = dateBegin[2] + dateBegin[1] + dateBegin[0] + "000000";
+    var dateEnd = dpe.value.split("/");
+    dateEnd = dateEnd[2] + dateEnd[1] + dateEnd[0] + "235959";
 
-        var dateEnd = dpe.value.split("/");
-        dateEnd = dateEnd[2] + dateEnd[0] + dateEnd[1] + "000000";
-    }
 
     var redirectUrl = (window.location.href).split("?")[0] + "?db=" + dateBegin + "&de=" + dateEnd;
 
