@@ -12,7 +12,7 @@ namespace WebApp.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class pacemakerdataEntities : DbContext
     {
         public pacemakerdataEntities()
