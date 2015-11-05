@@ -48,6 +48,12 @@ header {
     height: 100px; 
     width: 100%;
 }
+img{
+    float: left;
+}
+h2 {
+    float: right;
+}
 
 .nav ul {
   list-style: none;
@@ -86,6 +92,7 @@ header {
 .nav .navbar-brand:hover {
   background: #E7E7E7;
   color: #000000;
+  cursor: pointer;
 }
 
 
