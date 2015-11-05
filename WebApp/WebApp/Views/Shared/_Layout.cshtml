@@ -67,17 +67,22 @@
         }
         <div class="datePicker">
             <p class="date-picker1">Date from:</p>
-            <input id="dpb" class='date-picker1' value="@ViewBag.DateBegin" onchange="alertFunction('dpb')" />
+            <input id="dpb" class='date-picker1' value="@ViewBag.DateBegin" onchange="alertFunction()" />
             <p class="date-picker2">Date to:</p>
-            <input id="dpe" class='date-picker2' value="@ViewBag.DateEnd" onchange="alertFunction('dpe')" />
+            <input id="dpe" class='date-picker2' value="@ViewBag.DateEnd" onchange="alertFunction()" />
         </div>
         <div class="patientButton">
             <button type="button" id="opener" class="patientButton">Choose Patient</button>
         </div>
 
-        <div id="dialog">
-             <a class="popupPatient" title="Choose Patient"></a>
-            <div id="container" style="min-width: 400px; min-height: 400px; "></div>
+        <div id="dialog" >
+            <a class="popupPatient" title="Choose Patient"></a>
+            <div id="container" style="min-width: 400px; min-height: 400px; ">
+                <table id="patientTable">
+
+                </table>
+                <input type="button" onclick="alertFunction()" value="Submit"/>
+            </div>
         </div>
 
 
