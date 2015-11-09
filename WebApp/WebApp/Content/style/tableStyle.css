@@ -16,9 +16,18 @@ table th {
     padding: 3px;
 }
 
+table th.hiddenCell {
+    display: none;
+}
+
 table tr {
     border-bottom: 1px solid #D4D4D4;
 }
+
+table tr.trData {
+    display: table-row;
+}
+
 table tr:hover {
     background: #FEFDCD;
 }
@@ -32,6 +41,9 @@ table td {
 }
 table td.cellWithNumber {
     text-align: center;
+}
+table td.hiddenCell {
+    display: none;
 }
 
 

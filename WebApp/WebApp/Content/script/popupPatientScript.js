@@ -6,19 +6,24 @@
  
       $( "#opener" ).click(function() {
           $("#dialog").dialog("open");
-          getPatientData();
       });
 });
+
+$(document).ready(function () {
+    getPatientData();
+    getEpisodeData();
+});
+
 
 function makePatientTable(patientModel) {
     var patientData = document.getElementById('patientTable');
 
-    console.log(patientModel);
+    //console.log(patientModel);
     
-    var result = "<tr><th><input id='checkAll' type=checkbox onClick='checkAll()' /></th><th>Patient name</th></tr>";
+    var result = "<tr><th><input id='checkAll' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th></tr>";
     
     for (var patient in patientModel) {
-        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient] + "'/></td><td>" + patientModel[patient] + "</td></tr>";
+        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient] + "' checked /></td><td>" + patientModel[patient] + "</td></tr>";
     }
     
 
@@ -44,6 +49,46 @@ function checkAll() {
     }
 }
 
+function makeEpisodeTable(episodeModel)
+{
+    var table = document.getElementById("episodeCheck");
+    var html = "";
+
+    for(var i = 0; i < episodeModel.length; i++)
+    {
+        html += '<li>' +
+                    '<label>' +
+                        '<input type="checkbox" class="episodeCheckbox" onClick="alertFunction()" value="' + episodeModel[i] + '" checked />' + episodeModel[i] +
+                    '</label>' +
+                '</li>'
+    }
+
+    table.innerHTML = html;
+}
+
+function getEpisodeData()
+{
+    var url = window.location.href;
+    url = url.substring(url.lastIndexOf('/'));
+    console.log(url);
+    if (url === "/Index") url = 'getEpisodes';
+    else url = 'Episode/getEpisodes';
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        //data: { 'episodeType': episodeType, 'db': db, 'de': de },
+        success: function (episodeModel) {
+            //console.log(patientModel);
+            makeEpisodeTable(episodeModel);
+        },
+        error: function () {
+            alert('Error occured');
+        }
+    });
+}
+
 function getPatientData() {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
@@ -58,9 +103,8 @@ function getPatientData() {
         cache: false,
         //data: { 'episodeType': episodeType, 'db': db, 'de': de },
         success: function (patientModel) {
-            console.log(patientModel);
+            //console.log(patientModel);
             makePatientTable(patientModel);
-            return patientModel;
         },
         error: function () {
             alert('Error occured');

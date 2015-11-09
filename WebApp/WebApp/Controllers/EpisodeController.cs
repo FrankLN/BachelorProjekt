@@ -73,6 +73,17 @@ namespace WebApp.Controllers
                     item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
                         dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
                         dbModel.pacemakerdataview.Select(m => m.ID).Distinct().Count());
+
+                    List<string> dates = new List<string>();
+                    List<string> patients = new List<string>();
+                    foreach(var episode in dbModel.pacemakerdataview.Where(m => m.episodeName == item.EpisodeType))
+                    {
+                        dates.Add(episode.episodeDate);
+                        patients.Add(episode.firstName + " " + episode.lastName + "|");
+                    }
+
+                    item.Dates = dates;
+                    item.Patients = patients;
                 }
 
                 d = dbModel.pacemakerdataview.Min(m => m.episodeDate);
@@ -88,17 +99,25 @@ namespace WebApp.Controllers
             return View("Index", eMList);
         }
 
-        // POST: Episode/index?db=20150918153452&de=20150918153452
-        [HttpPost]
-        public ActionResult Index(string db, string de)
+        [HttpGet]
+        public JsonResult getNewModel(string episodes, string datesSelected, string patientsChecked)
         {
+            string[] episodeList = episodes.Split('|');
+            string[] dateList = datesSelected.Split('|');
+            string db = dateList[0];
+            string de = dateList[1];
+            string[] patientList = patientsChecked.Split('|');
+
             List<ViewModels.EpisodeViewModel> eMList = new List<ViewModels.EpisodeViewModel>();
 
             if (dbModel.pacemakerdataview != null)
             {
-                var data = dbModel.pacemakerdataview.Where(m => m.episodeDate.CompareTo(db) >= 0 && m.episodeDate.CompareTo(de) <= 0);
+                var model = dbModel.pacemakerdataview.Where(m => episodeList.Contains(m.episodeName) &&
+                    (m.episodeDate.CompareTo(db) >= 0 &&  m.episodeDate.CompareTo(de) <= 0) &&
+                    patientList.Contains(m.firstName + " " + m.lastName));
 
-                foreach (var episode in data.Select(m => m.episodeName).Distinct())
+
+                foreach (var episode in model.Select(m => m.episodeName).Distinct())
                 {
                     var tempObj = new ViewModels.EpisodeViewModel();
 
@@ -109,22 +128,43 @@ namespace WebApp.Controllers
 
                 foreach (var item in eMList)
                 {
-                    item.Transmissions = data.Where(modelItem => modelItem.episodeName == item.EpisodeType)
+                    item.Transmissions = model.Where(modelItem => modelItem.episodeName == item.EpisodeType)
                                                 .Select(modelItem => modelItem.ID).Distinct().Count();
 
                     item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
-                        data.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
-                        data.Select(m => m.ID).Distinct().Count());
-                }
+                        model.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
+                        model.Select(m => m.ID).Distinct().Count());
 
-                db = db.Substring(6, 2) + "/" + db.Substring(4, 2) + "/" + db.Substring(0, 4);
-                de = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
+                    List<string> dates = new List<string>();
+                    List<string> patients = new List<string>();
+                    foreach (var episode in model.Where(m => m.episodeName == item.EpisodeType))
+                    {
+                        dates.Add(episode.episodeDate);
+                        patients.Add(episode.firstName + " " + episode.lastName + "|");
+                    }
+
+                    item.Dates = dates;
+                    item.Patients = patients;
+                }
             }
 
-            ViewBag.DateBegin = db;
-            ViewBag.DateEnd = de; 
-            ViewBag.Header = "Episode Administration";
-            return View("Index", eMList);
+            return Json(eMList, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult getEpisodes()
+        {
+            List<string> result = new List<string>();
+
+            if (dbModel.pacemakerdataview != null)
+            {
+                foreach (var episode in dbModel.pacemakerdataview.Select(m => m.episodeName).Distinct())
+                {
+                    result.Add(episode);
+                }
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

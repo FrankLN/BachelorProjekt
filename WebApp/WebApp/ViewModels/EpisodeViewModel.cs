@@ -10,7 +10,7 @@ namespace WebApp.ViewModels
     {
         [DisplayName("Episode type")]
         [Helpers.Tooltip("The type of episode")]
-        public String EpisodeType { get; set; }
+        public string EpisodeType { get; set; }
 
         private int transmission;
         [DisplayName("Transmissions")]
@@ -46,5 +46,8 @@ namespace WebApp.ViewModels
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public List<string> Dates { get; set; }
+        public List<string> Patients { get; set; }
     }
 }

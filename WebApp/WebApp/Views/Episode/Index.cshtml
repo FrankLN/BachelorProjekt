@@ -13,13 +13,14 @@
 
 
     <table>
-        <tr>
-            <th></th>
-            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().EpisodeType)" class="dropdown">
-            @Html.LabelFor(model => Model.FirstOrDefault().EpisodeType)
+        <thead>
+            <tr>
+                <th></th>
+                <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().EpisodeType)" class="dropdown">
+                    @Html.LabelFor(model => Model.FirstOrDefault().EpisodeType)
 
-                    <ul class="dropdown-list">
-                        <li>
+                    <ul id="episodeCheck" class="dropdown-list">
+                        @*<li>
                             <label>
                                 <input type="checkbox" value="Vejle" name="city" />Vejle
                             </label>
@@ -38,21 +39,24 @@
                             <label>
                                 <input type="checkbox" value="Fredericia" name="city" />Fredericia
                             </label>
-                        </li>
+                        </li>*@
                     </ul>
-            </th>
-            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
-            <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
-        </tr>
-        @foreach (var typeModel in Model)
-        {
-            <tr>
-                <td class="graphInputButton"> <input type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph" onclick="overlay('@typeModel.EpisodeType','@typeModel.Transmissions')"></td>
-                <td>@Html.DisplayFor(modelItem => typeModel.EpisodeType) </td>
-                <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
-                <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
+                </th>
+                <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
+                <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
             </tr>
-        }
+        </thead>
+        <tbody id="tableContent">
+            @foreach (var typeModel in Model)
+            {
+                <tr class="trData">
+                    <td class="graphInputButton"> <input type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph" onclick="overlay('@typeModel.EpisodeType','@typeModel.Transmissions')"></td>
+                    <td class="episodeType">@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
+                    <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
+                    <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
+                </tr>
+            }
+        </tbody>
     </table>
 
 
