@@ -12,7 +12,7 @@ namespace WebApp.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class pacemakerdataEntities : DbContext
     {
         public pacemakerdataEntities()
@@ -26,5 +26,6 @@ namespace WebApp.Models
         }
     
         public DbSet<pacemakerdataview> pacemakerdataview { get; set; }
+        public DbSet<batteristatistikview> batteristatistikview { get; set; }
     }
 }

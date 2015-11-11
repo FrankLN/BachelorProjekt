@@ -49,8 +49,8 @@ function updateTable(newModel)
     for (var i = 0; i < newModel.length; i++) {
         html += '<tr class="trData">' +
                     '<td class="graphInputButton">' +
-                        '<input type="image" class="graphButton" img src="Content/img/graph_icon.png" title="Show graph" onclick=' +
-                        "overlay('" + newModel[i].EpisodeType + ", " + newModel[i].Transmissions + "')></td>" +
+                        '<input type="image" class="graphButton" img src="Content/img/graph_icon.png" title="Show graph" onclick="' +
+                        'overlay(\'' + newModel[i].EpisodeType + '\', \'' + newModel[i].Transmissions + '\')"></td>' +
                     '<td class="episodeType">' + newModel[i].EpisodeType + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].Transmissions + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].ProcentTransmission + ' %</td>' +

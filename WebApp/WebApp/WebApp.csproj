@@ -185,13 +185,16 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EpisodeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BatteryController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\ModelHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\TooltipAttribute.cs" />
+    <Compile Include="Models\batteristatistikview.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DbModel.cs" />
     <Compile Include="Models\pacemakerdataview.cs">
       <DependentUpon>PacemakerDB.tt</DependentUpon>
@@ -211,6 +214,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PacemakerDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
@@ -220,7 +224,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Battery\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\PlotKit\dummy.svg" />
     <None Include="Web.Debug.config">

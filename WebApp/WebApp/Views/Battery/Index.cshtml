@@ -1,0 +1,26 @@
+﻿@model List<WebApp.ViewModels.BatteryViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<table>
+    <thead>
+        <tr>
+            <th>Patient name</th>
+            <th>Pm serial number</th>
+            <th>Implanted date</th>
+            <th>Estimated days left to end of service</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var row in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => row.PatientName)</td>
+                <td>@Html.DisplayFor(modelItem => row.PacemakerSerialNumber)</td>
+                <td>@Html.DisplayFor(modelItem => row.DateOfImplantation)</td>
+                <td>@Html.DisplayFor(modelItem => row.EstimatedDaysOfServiceLeft)</td>
+            </tr>
+        }
+    </tbody>
+</table>
