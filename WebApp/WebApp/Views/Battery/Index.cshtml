@@ -1,0 +1,32 @@
+﻿@model WebApp.ViewModels.BatteryGraphViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<script src="~/Content/script/BatteryGraphScript.js"></script>
+<link href="~/Content/style/BatteryGraphStyle.css" rel="stylesheet" type="text/css" />
+
+<table>
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Number of estimated pm replacements</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for(var i = 0; i < 12; i++)
+        {
+            <tr>
+                <td>@Model.MonthName[i]</td>
+                <td>@Model.ByMonth[i]</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="chartdiv"></div>

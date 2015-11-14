@@ -94,11 +94,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\graph_icon.png" />
+    <Content Include="Content\script\BatteryGraphScript.js" />
     <Content Include="Content\script\chartScript.js" />
     <Content Include="Content\script\datePicker.js" />
     <Content Include="Content\script\dropdownScript.js" />
     <Content Include="Content\script\popupPatientScript.js" />
     <Content Include="Content\script\popupScript.js" />
+    <Content Include="Content\style\BatteryGraphStyle.css" />
     <Content Include="Content\style\buttonStyle.css" />
     <Content Include="Content\style\dropdownStyle.css" />
     <Content Include="Content\style\homeStyle.css" />
@@ -185,13 +187,16 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EpisodeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BatteryController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\ModelHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\TooltipAttribute.cs" />
+    <Compile Include="Models\batteristatistikview.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DbModel.cs" />
     <Compile Include="Models\pacemakerdataview.cs">
       <DependentUpon>PacemakerDB.tt</DependentUpon>
@@ -211,6 +216,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PacemakerDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BatteryGraphViewModel.cs" />
+    <Compile Include="ViewModels\BatteryJSViewModel.cs" />
+    <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
@@ -220,7 +228,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Battery\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\PlotKit\dummy.svg" />
     <None Include="Web.Debug.config">
