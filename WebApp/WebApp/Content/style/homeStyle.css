@@ -19,29 +19,6 @@ wrapper{
     display: block;
     background-clip: border-box;
     margin: auto;
-    /*background-attachment: scroll;
-    
-    background-size: auto;
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    min-height: 100%;
-    line-height: 21.021px;
-    margin-bottom: -155px;
-    margin-left: 61.7962px;
-    margin-right: 61.7962px;
-    margin-top: 0px;
-    min-width: 500px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-  /*margin-left: 30px;
-  background: 0;
-  width: 300px;
-  height: auto;
-  background-position: top center;*/*/
 }
   
 header { 
@@ -50,6 +27,7 @@ header {
 }
 img{
     float: left;
+    padding-top: 20px;
 }
 h2 {
     float: right;
@@ -83,7 +61,6 @@ h2 {
   background-color: #F0F0F0;
   color: #000000;
   display: block;
-  /*transition: .3s background-color;*/
   padding: 4px;
   margin-left: -4px;
   margin-right: -4px;
