@@ -35,7 +35,7 @@
 
                     </ul>
                 </th>
-                <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)</th>
+                <th id="thTransmission" title="@Html.ToolTipFor(m => Model.FirstOrDefault().Transmissions)">@Html.LabelFor(model => Model.FirstOrDefault().Transmissions)  (@Model.FirstOrDefault().TotalTransmissions)</th>
                 <th title="@Html.ToolTipFor(m => Model.FirstOrDefault().ProcentTransmission)">@Html.LabelFor(model => Model.FirstOrDefault().ProcentTransmission)</th>
             </tr>
         </thead>

@@ -118,7 +118,12 @@ function alertFunction(seachText) {
 function updateTable(newModel)
 {
     var table = document.getElementById("tableContent");
+    var header = document.getElementById("thTransmission");
 
+    var headerHtml = header.innerText.substring(0, header.innerHTML.indexOf('(') + 1) + newModel[0].TotalTransmissions + ')';
+    console.log("headerHtml: " + headerHtml);
+
+    header.innerHTML = headerHtml;
     var html = '';
 
     for (var i = 0; i < newModel.length; i++) {

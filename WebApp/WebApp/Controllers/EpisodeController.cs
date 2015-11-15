@@ -68,12 +68,13 @@ namespace WebApp.Controllers
 
                 foreach (var item in eMList)
                 {
+                    item.TotalTransmissions = dbModel.pacemakerdataview.Select(m => m.ID).Distinct().Count();
                     item.Transmissions = dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType)
                                                 .Select(modelItem => modelItem.ID).Distinct().Count();
 
                     item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
                         dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
-                        dbModel.pacemakerdataview.Select(m => m.ID).Distinct().Count());
+                        item.TotalTransmissions);
 
                     List<string> dates = new List<string>();
                     List<string> patients = new List<string>();
@@ -226,6 +227,7 @@ namespace WebApp.Controllers
 
                 foreach (var item in eMList)
                 {
+                    item.TotalTransmissions = model.Select(m => m.ID).Distinct().Count();
                     item.Transmissions = model.Where(modelItem => modelItem.episodeName == item.EpisodeType)
                                                 .Select(modelItem => modelItem.ID).Distinct().Count();
 
