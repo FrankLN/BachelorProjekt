@@ -10,7 +10,7 @@
 });
 
 $(document).ready(function () {
-    getPatientData();
+    getPatientData('x');
     getEpisodeData();
 });
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
 function makePatientTable(patientModel) {
     var patientData = document.getElementById('patientTable');
 
-    //console.log(patientModel);
+    console.log(patientModel);
     
     var result = "<tr><th><input id='checkAll' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th></tr>";
     
@@ -70,7 +70,7 @@ function getEpisodeData()
 {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
+    //console.log(url);
     if (url === "/Index") url = 'getEpisodes';
     else url = 'Episode/getEpisodes';
     $.ajax({
@@ -89,12 +89,12 @@ function getEpisodeData()
     });
 }
 
-function getPatientData() {
+function getPatientData(filter) {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
-    if (url === "/Index") url = 'getPatients';
-    else url = 'Episode/getPatients';
+    //console.log(url);
+    if (url === "/Index") url = 'getPatients?filter=' + filter;
+    else url = 'Episode/getPatients?filter=' + filter;
     console.log(url);
     $.ajax({
         url: url,
@@ -110,4 +110,9 @@ function getPatientData() {
             alert('Error occured');
         }
     });
+}
+
+function patientSearch() {
+    var searchText = document.getElementById("patientTags");
+    getPatientData(searchText.value);
 }

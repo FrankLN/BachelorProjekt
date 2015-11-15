@@ -16,7 +16,7 @@ warning 6002: The table/view 'def.pacemakerdata.batteristatistikview' does not h
           <Property Name="firstName" Type="varchar" MaxLength="50" />
           <Property Name="lastName" Type="varchar" MaxLength="50" />
           <Property Name="dateOfImplantation" Type="varchar" MaxLength="14" Nullable="false" />
-          <Property Name="pacemakerSerialNumber" Type="int" Nullable="false" />
+          <Property Name="pacemakerSerialNumber" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="estimatedDaysOfServiceLeft" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -32,7 +32,7 @@ warning 6002: The table/view 'def.pacemakerdata.pacemakerdataview' does not have
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="transmissionDate" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="episodeDate" Type="varchar" MaxLength="14" />
-          <Property Name="pacemakerSerialNumber" Type="int" />
+          <Property Name="pacemakerSerialNumber" Type="varchar" MaxLength="6" />
           <Property Name="name" Type="varchar" MaxLength="50" />
           <Property Name="type" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -64,6 +64,10 @@ FROM `pacemakerdataview` AS `pacemakerdataview`</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="pacemakerdataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="pacemakerdataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pacemakerdataview" EntityType="pacemakerdataModel.pacemakerdataview" />
+          <EntitySet Name="batteristatistikview" EntityType="pacemakerdataModel.batteristatistikview" />
+        </EntityContainer>
         <EntityType Name="pacemakerdataview">
           <Key>
             <PropertyRef Name="ID" />
@@ -73,16 +77,12 @@ FROM `pacemakerdataview` AS `pacemakerdataview`</DefiningQuery>
           <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="episodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="transmissionDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="transmissionDate" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="episodeDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Name="pacemakerSerialNumber" Type="Int32" />
+          <Property Name="pacemakerSerialNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="pacemakerdataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="pacemakerdataview" EntityType="Self.pacemakerdataview" />
-          <EntitySet Name="batteristatistikview" EntityType="pacemakerdataModel.batteristatistikview" />
-        </EntityContainer>
         <EntityType Name="batteristatistikview">
           <Key>
             <PropertyRef Name="dateOfImplantation" />
@@ -92,7 +92,7 @@ FROM `pacemakerdataview` AS `pacemakerdataview`</DefiningQuery>
           <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dateOfImplantation" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Name="pacemakerSerialNumber" Type="Int32" Nullable="false" />
+          <Property Name="pacemakerSerialNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="estimatedDaysOfServiceLeft" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
@@ -104,15 +104,15 @@ FROM `pacemakerdataview` AS `pacemakerdataview`</DefiningQuery>
           <EntitySetMapping Name="pacemakerdataview">
             <EntityTypeMapping TypeName="pacemakerdataModel.pacemakerdataview">
               <MappingFragment StoreEntitySet="pacemakerdataview">
-                <ScalarProperty Name="firstName" ColumnName="firstName" />
-                <ScalarProperty Name="lastName" ColumnName="lastName" />
-                <ScalarProperty Name="episodeName" ColumnName="episodeName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="transmissionDate" ColumnName="transmissionDate" />
-                <ScalarProperty Name="episodeDate" ColumnName="episodeDate" />
-                <ScalarProperty Name="pacemakerSerialNumber" ColumnName="pacemakerSerialNumber" />
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pacemakerSerialNumber" ColumnName="pacemakerSerialNumber" />
+                <ScalarProperty Name="episodeDate" ColumnName="episodeDate" />
+                <ScalarProperty Name="transmissionDate" ColumnName="transmissionDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="episodeName" ColumnName="episodeName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

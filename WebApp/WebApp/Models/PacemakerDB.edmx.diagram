@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="be97ff691bce45c09e0a00d0d9e3fbe4" Name="Diagram1">
-        <EntityTypeShape EntityType="pacemakerdataModel.pacemakerdataview" Width="2.125" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="pacemakerdataModel.batteristatistikview" Width="2.125" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="pacemakerdataModel.pacemakerdataview" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="pacemakerdataModel.batteristatistikview" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

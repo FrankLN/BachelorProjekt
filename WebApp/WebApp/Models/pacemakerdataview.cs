@@ -20,7 +20,7 @@ namespace WebApp.Models
         public int ID { get; set; }
         public string transmissionDate { get; set; }
         public string episodeDate { get; set; }
-        public Nullable<int> pacemakerSerialNumber { get; set; }
+        public string pacemakerSerialNumber { get; set; }
         public string name { get; set; }
         public string type { get; set; }
     }

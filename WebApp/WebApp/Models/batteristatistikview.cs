@@ -17,7 +17,7 @@ namespace WebApp.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string dateOfImplantation { get; set; }
-        public int pacemakerSerialNumber { get; set; }
+        public string pacemakerSerialNumber { get; set; }
         public int estimatedDaysOfServiceLeft { get; set; }
     }
 }

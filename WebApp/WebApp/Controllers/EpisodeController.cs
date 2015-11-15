@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Objects.SqlClient;
 
 namespace WebApp.Controllers
 {
@@ -100,7 +101,91 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public JsonResult getNewModel(string episodes, string datesSelected, string patientsChecked)
+        public JsonResult getTags()
+        {
+            List<string> result = new List<string>();
+
+            if (dbModel.pacemakerdataview != null)
+            {
+                var model = dbModel.pacemakerdataview;
+                foreach (var item in model)
+                {
+                    if (!result.Contains(item.episodeDate))
+                    {
+                        result.Add(item.episodeDate);
+                    }
+                    if (!result.Contains(item.episodeName))
+                    {
+                        result.Add(item.episodeName);
+                    }
+                    if (!result.Contains(item.firstName))
+                    {
+                        result.Add(item.firstName);
+                    }
+                    if (!result.Contains(item.lastName))
+                    {
+                        result.Add(item.lastName);
+                    }
+                    if (!result.Contains(item.name))
+                    {
+                        result.Add(item.name);
+                    }
+                    if (!result.Contains(item.pacemakerSerialNumber.ToString()))
+                    {
+                        result.Add(item.pacemakerSerialNumber.ToString());
+                    }
+                    if (!result.Contains(item.transmissionDate))
+                    {
+                        result.Add(item.transmissionDate);
+                    }
+                    if (!result.Contains(item.type))
+                    {
+                        result.Add(item.type);
+                    }
+                }
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult getPatientTags()
+        {
+            List<string> result = new List<string>();
+
+            if (dbModel.pacemakerdataview != null)
+            {
+                var model = dbModel.pacemakerdataview;
+                foreach (var item in model)
+                {
+                    if (!result.Contains(item.firstName))
+                    {
+                        result.Add(item.firstName);
+                    }
+                    if (!result.Contains(item.lastName))
+                    {
+                        result.Add(item.lastName);
+                    }
+                    if (!result.Contains(item.name))
+                    {
+                        result.Add(item.name);
+                    }
+                    if (!result.Contains(item.pacemakerSerialNumber.ToString()))
+                    {
+                        result.Add(item.pacemakerSerialNumber.ToString());
+                    }
+                    if (!result.Contains(item.type))
+                    {
+                        result.Add(item.type);
+                    }
+                }
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult getNewModel(string episodes, string datesSelected, string patientsChecked, string searchText)
         {
             string[] episodeList = episodes.Split('|');
             string[] dateList = datesSelected.Split('|');
@@ -115,6 +200,19 @@ namespace WebApp.Controllers
                 var model = dbModel.pacemakerdataview.Where(m => episodeList.Contains(m.episodeName) &&
                     (m.episodeDate.CompareTo(db) >= 0 &&  m.episodeDate.CompareTo(de) <= 0) &&
                     patientList.Contains(m.firstName + " " + m.lastName));
+
+                if(searchText.Length >= 2)
+                {
+                    model = model.Where(m => m.episodeName.ToLower().Contains(searchText.ToLower()) ||
+                                        m.firstName.ToLower().Contains(searchText.ToLower()) ||
+                                        m.lastName.ToLower().Contains(searchText.ToLower()) ||
+                                        m.name.ToLower().Contains(searchText.ToLower()) ||
+                                        m.pacemakerSerialNumber.Contains(searchText) ||
+                                        m.transmissionDate.ToLower().Contains(searchText.ToLower()) ||
+                                        m.type.ToLower().Contains(searchText.ToLower()) ||
+                                        m.episodeDate.ToLower().Contains(searchText.ToLower())
+                                        );
+                }
 
 
                 foreach (var episode in model.Select(m => m.episodeName).Distinct())
@@ -168,13 +266,22 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public JsonResult getPatients()
+        public JsonResult getPatients(string filter)
         {
             List<string> result = new List<string>();
 
             if (dbModel.pacemakerdataview != null)
             {
-                foreach (var patient in dbModel.pacemakerdataview.Select(m => new { m.firstName, m.lastName }).Distinct())
+                var model = dbModel.pacemakerdataview.Where(m => true);
+                if (filter != null && filter.Length >= 2)
+                {
+                    model = model.Where(m => m.firstName.ToLower().Contains(filter.ToLower()) || 
+                                        m.lastName.ToLower().Contains(filter.ToLower()) ||
+                                        m.pacemakerSerialNumber.ToLower().Contains(filter.ToLower()) ||
+                                        m.name.ToLower().Contains(filter.ToLower()) || 
+                                        m.type.ToLower().Contains(filter.ToLower()));
+                }
+                foreach (var patient in model.Select(m => new { m.firstName, m.lastName }).Distinct())
                 {
                     result.Add(patient.firstName + " " + patient.lastName);
                 }

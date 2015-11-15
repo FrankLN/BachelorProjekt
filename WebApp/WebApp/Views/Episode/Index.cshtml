@@ -6,12 +6,24 @@
 
 <script src="~/Content/script/popupScript.js?v=2"></script>
 <script src="~/Content/script/chartScript.js?v=2"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
 
 
+<div class="ui-widget"
+    style="float:right;
+        display: table-cell;
+        vertical-align: middle;
+        height: 35px;">
+    <label for="tags" style="padding-right:3px;">Search:</label>
+    <input id="tags" type="text" onkeyup="search()" />
+</div>
     <table>
         <thead>
             <tr>

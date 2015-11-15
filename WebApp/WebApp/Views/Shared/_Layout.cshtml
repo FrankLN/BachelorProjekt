@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="~/Content/script/popupPatientScript.js?v=1"></script>  
+    <script src="~/Content/script/popupPatientScript.js?v=2"></script>  
 
     <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -44,7 +44,7 @@
                 </div>
             </div>*@
         <header>
-            <img src="~/Content/img/sjm_logo.jpg" alt="St Jude Medical" />
+            @*<img src="~/Content/img/sjm_logo.jpg" alt="St Jude Medical" />*@
             <h2> Login Info</h2>
         </header>
         @if (ViewBag.Header == "Episode Administration")
@@ -75,12 +75,21 @@
             <button type="button" id="opener" class="patientButton">Choose Patient</button>
         </div>
 
-        <div id="dialog" >
+        <div id="dialog" style="min-width: 400px;" >
             <a class="popupPatient" title="Choose Patient"></a>
             <div id="container" style="min-width: 400px; min-height: 400px; ">
-                <table id="patientTable">
+                <div class="ui-widget"
+                    style="display: table-cell;
+                    vertical-align: middle;
+                    height: 35px;">
+                    <label for="patientTags" style="padding-right:3px;">Search:</label>
+                    <input id="patientTags" type="text" onkeyup="patientSearch()" style="width: 150px;" />
+                </div>
+                <br />
+                <table id="patientTable" style="width: 250px;">
 
                 </table>
+                <br />
                 <input type="button" onclick="alertFunction()" value="Submit"/>
             </div>
         </div>
