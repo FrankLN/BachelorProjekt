@@ -28,7 +28,7 @@ function makePatientTable(patientModel) {
     var result = "<thead><tr><th><input id='checkAll' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th><th>Patient securitynumber</th><th>Pacemaker serialnumber</th><th>Pacemaker name</th><th>Pacemaker type</th></tr></thead>";
     
     for (var patient in patientModel) {
-        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient] + "' checked /></td><td>" +
+        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient].PatientName + "' checked /></td><td>" +
             patientModel[patient].PatientName + "</td><td>" +
             patientModel[patient].SecurityNumber + "</td><td>" +
             patientModel[patient].PacemakerSerialnumber + "</td><td>" +

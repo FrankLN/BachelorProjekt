@@ -197,7 +197,7 @@ function getPatientList() {
     var patients = document.querySelectorAll(".patientCheckbox:checked");
     var i = 0;
     var patientList = [];
-    //console.log(patients.length)
+    //console.log(patients)
     if (patients.length > 0) {
         while (i < patients.length) {
             //console.log(patients[i].value);
