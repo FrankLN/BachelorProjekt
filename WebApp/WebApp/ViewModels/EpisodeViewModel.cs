@@ -14,7 +14,7 @@ namespace WebApp.ViewModels
 
         private int transmission;
         [DisplayName("Transmissions")]
-        [Helpers.Tooltip("The number of Transmissions where the episode type is present\nThe number in parentes is the total number of transmission currently shown")]
+        [Helpers.Tooltip("The number of Transmissions where the episode type is present\nThe number in parenthese is the total number of transmission currently shown")]
         public int Transmissions
         {
             get

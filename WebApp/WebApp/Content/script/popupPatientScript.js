@@ -1,11 +1,16 @@
 ﻿$(function () {
       $( "#dialog" ).dialog({
           autoOpen: false,
-
+          minWidth: 700
       });
  
-      $( "#opener" ).click(function() {
+      $("#opener").click(function () {
+          $("#dialog").style = "width: 500px";
           $("#dialog").dialog("open");
+      });
+
+      $("#closer").click(function () {
+          $("#dialog").dialog("close");
       });
 });
 
@@ -18,12 +23,17 @@ $(document).ready(function () {
 function makePatientTable(patientModel) {
     var patientData = document.getElementById('patientTable');
 
-    console.log(patientModel);
+    //console.log(patientModel);
     
-    var result = "<tr><th><input id='checkAll' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th></tr>";
+    var result = "<thead><tr><th><input id='checkAll' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th><th>Patient securitynumber</th><th>Pacemaker serialnumber</th><th>Pacemaker name</th><th>Pacemaker type</th></tr></thead>";
     
     for (var patient in patientModel) {
-        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient] + "' checked /></td><td>" + patientModel[patient] + "</td></tr>";
+        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient] + "' checked /></td><td>" +
+            patientModel[patient].PatientName + "</td><td>" +
+            patientModel[patient].SecurityNumber + "</td><td>" +
+            patientModel[patient].PacemakerSerialnumber + "</td><td>" +
+            patientModel[patient].PacemakerName + "</td><td>" +
+            patientModel[patient].PacemakerType + "</td></tr>";
     }
     
 
@@ -95,7 +105,7 @@ function getPatientData(filter) {
     //console.log(url);
     if (url === "/Index") url = 'getPatients?filter=' + filter;
     else url = 'Episode/getPatients?filter=' + filter;
-    console.log(url);
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
@@ -114,5 +124,36 @@ function getPatientData(filter) {
 
 function patientSearch() {
     var searchText = document.getElementById("patientTags");
-    getPatientData(searchText.value);
+    updatePatientTable(searchText.value);
+}
+
+function updatePatientTable(searchText)
+{
+    console.log(searchText);
+
+    var patientData = document.getElementById('patientTable');
+    var rows = patientData.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    for(var i = 0; i < rows.length; i++)
+    {
+        console.log(rows[i]);
+        console.log(rows[i].getElementsByTagName("td"));
+        console.log(rows[i].getElementsByTagName("td")[1]);
+        console.log(rows[i].getElementsByTagName("td")[1].innerText);
+
+        var show = searchText.length < 1;
+        for (var j = 1; j < rows[i].getElementsByTagName("td").length; j++)
+        {
+            show = show || rows[i].getElementsByTagName("td")[j].innerText.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+        }
+
+        if (show)
+        {
+            rows[i].style.display = "table-row";
+        }
+        else
+        {
+            rows[i].style.display = "none";
+        }
+    }
 }

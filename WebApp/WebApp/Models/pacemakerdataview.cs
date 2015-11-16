@@ -23,5 +23,6 @@ namespace WebApp.Models
         public string pacemakerSerialNumber { get; set; }
         public string name { get; set; }
         public string type { get; set; }
+        public string dateOfBirth { get; set; }
     }
 }

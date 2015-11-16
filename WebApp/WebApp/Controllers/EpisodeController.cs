@@ -270,7 +270,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public JsonResult getPatients(string filter)
         {
-            List<string> result = new List<string>();
+            List<ViewModels.PatientViewModel> result = new List<ViewModels.PatientViewModel>();
 
             if (dbModel.pacemakerdataview != null)
             {
@@ -283,9 +283,14 @@ namespace WebApp.Controllers
                                         m.name.ToLower().Contains(filter.ToLower()) || 
                                         m.type.ToLower().Contains(filter.ToLower()));
                 }
-                foreach (var patient in model.Select(m => new { m.firstName, m.lastName }).Distinct())
+                foreach (var patient in model.Select(m => new { m.firstName, m.lastName, m.name, m.pacemakerSerialNumber, m.type, m.dateOfBirth }).Distinct())
                 {
-                    result.Add(patient.firstName + " " + patient.lastName);
+                    result.Add(new ViewModels.PatientViewModel() { PatientName = patient.firstName + " " + patient.lastName, 
+                                                                    PacemakerName = patient.name, 
+                                                                    PacemakerSerialnumber = patient.pacemakerSerialNumber, 
+                                                                    PacemakerType = patient.type,
+                                                                    SecurityNumber = patient.dateOfBirth
+                                                                });
                 }
             }
 
@@ -294,13 +299,19 @@ namespace WebApp.Controllers
 
 
         [HttpGet]
-        public JsonResult getGraphData(string episodeType, string db, string de)
+        public JsonResult getGraphData(string episodeType, string db, string de, string patientsChecked)
         {
             ViewModels.GraphViewModel result = new ViewModels.GraphViewModel();
 
+            string[] patientList = patientsChecked.Split('|');
+
             if (dbModel.pacemakerdataview != null)
             {
-                var data = dbModel.pacemakerdataview.Where(m => m.episodeDate.CompareTo(db) >= 0 && m.episodeDate.CompareTo(de) <= 0 && m.episodeName == episodeType);
+                var data = dbModel.pacemakerdataview.Where(m => m.episodeDate.CompareTo(db) >= 0 && 
+                                                            m.episodeDate.CompareTo(de) <= 0 && 
+                                                            m.episodeName == episodeType && 
+                                                            patientList.Contains(m.firstName + " " + m.lastName)
+                                                            );
 
                 result.newestYear = data.Max(m => m.episodeDate);
                 result.newestYear = result.newestYear.Substring(0, 4);

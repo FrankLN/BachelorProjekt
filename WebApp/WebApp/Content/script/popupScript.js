@@ -7,8 +7,15 @@
         de = de.substring(6, 10) + de.substring(3, 5) + de.substring(0, 2) + "235959";
 
         console.log(db + " " + de);
+
+        var patientList = getPatientList();
+        var patients = "";
+        for (var i = 0; i < patientList.length; i++) {
+            patients += patientList[i] + "|";
+            //console.log(patients);
+        }
         
-        var graphModel = getGraphData(typeName, db, de);
+        getGraphData(typeName, db, de, patients);
 
         var graphHead = document.getElementById('graphHead');
         graphHead.innerHTML = "<tr><th></th><th>" + typeName + "</th></tr>";
@@ -53,17 +60,17 @@ function makeTable(graphModel)
 
 
     graphData.innerHTML = result;
-    console.log(graphModel.newestYear);
+    //console.log(graphModel.newestYear);
     drawGraph(graphModel.newestYear);
 }
 
-function getGraphData(episodeType, db, de) {
+function getGraphData(episodeType, db, de, patientsChecked) {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
-    if(url === "/Index") url = 'getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de;
-    else url = 'Episode/getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de;
-    console.log(url);
+    //console.log(url);
+    if(url === "/Index") url = 'getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de + "&patientChecked=" + patientChecked;
+    else url = 'Episode/getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de + "&patientsChecked=" + patientsChecked;
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
@@ -71,9 +78,8 @@ function getGraphData(episodeType, db, de) {
         cache: false,
         //data: { 'episodeType': episodeType, 'db': db, 'de': de },
         success: function (graphModel) {
-            console.log(graphModel);
+            //console.log(graphModel);
             makeTable(graphModel);
-            return graphModel;
         },
         error: function () {
             alert('Error occured');

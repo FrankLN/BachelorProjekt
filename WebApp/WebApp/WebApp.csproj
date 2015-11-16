@@ -93,6 +93,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\app_name.jpg" />
     <Content Include="Content\img\graph_icon.png" />
     <Content Include="Content\script\BatteryGraphScript.js" />
     <Content Include="Content\script\chartScript.js" />
@@ -139,6 +140,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\PacemakerDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -222,6 +224,7 @@
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
+    <Compile Include="ViewModels\PatientViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

@@ -9,33 +9,33 @@ $(function(){
 $(function() {
     var availableTags = [];
 
-    $("#tags").autocomplete({
-        source: availableTags
-    });
+    //$("#tags").autocomplete({
+    //    source: availableTags
+    //});
 
     $("#patientTags").autocomplete({
         source: availableTags
     });
 
 
-    getTags();
+    //getTags();
     getPatientTags();
 });
 
 function getPatientTags() {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
+    //console.log(url);
     if (url === "/Index") url = 'getPatientTags';
     else url = 'Episode/getPatientTags';
-    console.log(url);
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
         dataType: 'json',
         cache: false,
         success: function (model) {
-            console.log(model);
+            //console.log(model);
             $("#patientTags").autocomplete('option', 'source', model)
         },
         error: function () {
@@ -47,17 +47,17 @@ function getPatientTags() {
 function getTags() {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
+    //console.log(url);
     if (url === "/Index") url = 'getTags';
     else url = 'Episode/getTags';
-    console.log(url);
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
         dataType: 'json',
         cache: false,
         success: function (model) {
-            console.log(model);
+            //console.log(model);
             $("#tags").autocomplete('option', 'source', model)
         },
         error: function () {
@@ -66,21 +66,21 @@ function getTags() {
     });
 }
 
-function search() {
-    var searchText = document.getElementById("tags");
-    alertFunction(searchText.value)
-}
+//function search() {
+//    var searchText = document.getElementById("tags");
+//    alertFunction(searchText.value)
+//}
 
-function alertFunction(seachText) {
-    if (document.getElementById('tags').value.length >= 2) {
-        seachText = document.getElementById('tags').value;
-    }
-    else {
-        seachText = typeof seachText !== 'undefined' ? seachText : "x";
-    }
+function alertFunction() {
+    //if (document.getElementById('tags').value.length >= 2) {
+    //    seachText = document.getElementById('tags').value;
+    //}
+    //else {
+    //    seachText = typeof seachText !== 'undefined' ? seachText : "x";
+    //}
 
-    console.log(seachText);
-    console.log(seachText.length);
+    //console.log(seachText);
+    //console.log(seachText.length);
 
     var dpb = document.getElementById("dpb");
     var dpe = document.getElementById("dpe");
@@ -108,11 +108,11 @@ function alertFunction(seachText) {
         //console.log(patients);
     }
 
-    console.log(episodes);
-    console.log(dates);
-    console.log(patients);
+    //console.log(episodes);
+    //console.log(dates);
+    //console.log(patients);
 
-    getNewModel(episodes, dates, patients, seachText);
+    getNewModel(episodes, dates, patients, 'x');
 }
 
 function updateTable(newModel)
@@ -120,10 +120,20 @@ function updateTable(newModel)
     var table = document.getElementById("tableContent");
     var header = document.getElementById("thTransmission");
 
-    var headerHtml = header.innerText.substring(0, header.innerHTML.indexOf('(') + 1) + newModel[0].TotalTransmissions + ')';
-    console.log("headerHtml: " + headerHtml);
+    //console.log(header.innerText.lastIndexOf('('));
+    var headerHtml = header.innerText.substring(0, header.innerText.lastIndexOf('('));
+    //console.log(headerHtml);
+    if (newModel.length > 0) {
+        headerHtml += '(' + newModel[0].TotalTransmissions + ')';
+    }
+    else
+    {
+        headerHtml += '(0)';
+    }
 
+    //console.log("headerHtml: " + headerHtml);
     header.innerHTML = headerHtml;
+
     var html = '';
 
     for (var i = 0; i < newModel.length; i++) {
@@ -144,18 +154,18 @@ function updateTable(newModel)
 function getNewModel(episodes, dates, patients, searchText) {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
+    //console.log(url);
     if (url === "/Index") url = 'getNewModel';
     else url = 'Episode/getNewModel';
     url = url + '?episodes=' + episodes + '&datesSelected=' + dates + '&patientsChecked=' + patients + '&searchText=' + searchText;
-    console.log(url);
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
         dataType: 'json',
         cache: false,
         success: function (model) {
-            console.log(model);
+            //console.log(model);
             updateTable(model);
         },
         error: function () {
@@ -166,19 +176,19 @@ function getNewModel(episodes, dates, patients, searchText) {
 
 function getEpisodeList() {
     var episodes = document.querySelectorAll(".episodeCheckbox:checked");
-    console.log(episodes);
+    //console.log(episodes);
     var i = 0;
     var episodeList = [];
-    console.log(episodes.length)
+    //console.log(episodes.length)
     if (episodes.length > 0) {
         while (i < episodes.length) {
-            console.log(episodes[i].value);
+            //console.log(episodes[i].value);
             episodeList.push(episodes[i].value);
             i++;
         }
     }
 
-    console.log(episodeList);
+    //console.log(episodeList);
     return episodeList;
 }
 
