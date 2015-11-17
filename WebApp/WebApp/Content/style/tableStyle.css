@@ -73,11 +73,14 @@ table td.cellImage #graphInputButton {
     z-index: 1000;
  }
 
-#overlay div {
-     width: 500px;
+#overlay div{
+     width: 700px;
+     max-height: 500px;
      margin: 100px auto;
+     margin-top: 100px;
+     padding-top: -50px;
      background-color: #fff;
-     border:1px solid #000;
+     border: 1px solid #000;
      text-align:center;
 }
 
@@ -93,6 +96,14 @@ table td.cellImage #graphInputButton {
      z-index: 1000;
 }
 
+#container div{
+    min-width: 500px; 
+    height: 350px; 
+    padding: -5px;
+    margin: 0 auto;
+    border: none;
+
+}
 .close {
     cursor: pointer;
     float: right;

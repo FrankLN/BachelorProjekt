@@ -27,6 +27,32 @@
 }
 
 
+.ui-widget div{
+    font-family: Calibri;
+    color: #000000;
+    font-size: 14px;
+}
+
+.ui-widget div button {
+    background: #ffffff;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   color: #000000;
+   font-size: 14px;
+   font-family: Calibri;
+   }
+
+.ui-widget div button:hover {
+    background: #E7E7E7;
+    color: #000000;
+    cursor: pointer;       
+    }
+
+.ui-widget div button:active {
+   background: #E7E7E7;
+   }
+
 
 
 /*.popupPatient {
