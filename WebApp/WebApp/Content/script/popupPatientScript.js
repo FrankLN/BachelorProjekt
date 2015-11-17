@@ -1,17 +1,43 @@
 ﻿$(function () {
       $( "#dialog" ).dialog({
           autoOpen: false,
-          minWidth: 700
+          minWidth: 700,
+          closeText: "",
+          modal: true,
+          dialogClass: 'no-close'
       });
  
+      var backup = [];
+
       $("#opener").click(function () {
-          $("#dialog").style = "width: 500px";
           $("#dialog").dialog("open");
+          backup = getPatientList();
+          //console.log("open: " + backup);
       });
 
-      $("#closer").click(function () {
+      $("#cancel").click(function () {
+          //console.log("cancel: " + backup);
+          var patientCheckboxes = document.querySelectorAll(".patientCheckbox");
+
+          for(var i = 0; i < patientCheckboxes.length; i++)
+          {
+
+              backup = "" + backup;
+
+              if (backup.indexOf(patientCheckboxes[i].value) > -1)
+              {
+                  patientCheckboxes[i].checked = true;
+              }
+          }
           $("#dialog").dialog("close");
       });
+
+      $("#confirm").click(function () {
+          //console.log("confirm: " + backup);
+          $("#dialog").dialog("close");
+      });
+
+      $("#dialog").onclose
 });
 
 $(document).ready(function () {

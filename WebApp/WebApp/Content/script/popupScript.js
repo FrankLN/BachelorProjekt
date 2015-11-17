@@ -1,4 +1,61 @@
-﻿function overlay(typeName, count) {
+﻿$(function () {
+    $("#overlay").dialog({
+        autoOpen: false,
+        minWidth: 550,
+        minHeight: 450,
+        closeText: "",
+        modal: true
+    });
+
+    $(".graphButton").click(function (test) {
+        console.log("test0");
+        var typeName = 'VF'
+        var i = 1;
+        var o;
+        for (var obj in test)
+        {
+            //console.log("test" + i);
+            if (i === 6)
+            {
+                o = test[obj];
+            }
+            //console.log(test[obj]);
+            i++;
+        }
+        
+        typeName = o.value;
+
+        
+        var db = document.getElementById('dpb').value;
+        var de = document.getElementById('dpe').value;
+
+        db = db.substring(6, 10) + db.substring(3, 5) + db.substring(0, 2) + "000000";
+        de = de.substring(6, 10) + de.substring(3, 5) + de.substring(0, 2) + "235959";
+
+        //console.log(db + " " + de);
+
+        var patientList = getPatientList();
+        var patients = "";
+        for (var i = 0; i < patientList.length; i++) {
+            patients += patientList[i] + "|";
+            //console.log(patients);
+        }
+
+        getGraphData(typeName, db, de, patients);
+
+        var graphHead = document.getElementById('graphHead');
+        graphHead.innerHTML = "<tr><th></th><th>" + typeName + "</th></tr>";
+
+        $("#overlay").dialog("open");
+    });
+
+    $("#closer").click(function () {
+        $("#overlay").dialog("close");
+    });
+});
+
+
+function overlay(typeName, count) {
     if (typeName != 'close') {
         var db = document.getElementById('dpb').value;
         var de = document.getElementById('dpe').value;
@@ -68,7 +125,7 @@ function getGraphData(episodeType, db, de, patientsChecked) {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
     //console.log(url);
-    if(url === "/Index") url = 'getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de + "&patientChecked=" + patientChecked;
+    if(url === "/Index") url = 'getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de + "&patientsChecked=" + patientsChecked;
     else url = 'Episode/getGraphData?episodeType=' + episodeType + "&db=" + db + "&de=" + de + "&patientsChecked=" + patientsChecked;
     //console.log(url);
     $.ajax({

@@ -62,8 +62,7 @@ table td.cellImage #graphInputButton {
  cursor: pointer;
 }
 
-#overlay {
-    visibility: hidden;
+/*#overlay {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -94,7 +93,7 @@ table td.cellImage #graphInputButton {
      height:100%;
      text-align:center;
      z-index: 1000;
-}
+}*/
 
 #container div{
     min-width: 500px; 
@@ -107,4 +106,8 @@ table td.cellImage #graphInputButton {
 .close {
     cursor: pointer;
     float: right;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none 
 }

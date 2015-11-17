@@ -313,8 +313,15 @@ namespace WebApp.Controllers
                                                             patientList.Contains(m.firstName + " " + m.lastName)
                                                             );
 
-                result.newestYear = data.Max(m => m.episodeDate);
-                result.newestYear = result.newestYear.Substring(0, 4);
+                if (data.Count() > 0)
+                {
+                    result.newestYear = data.Max(m => m.episodeDate);
+                    result.newestYear = result.newestYear.Substring(0, 4);
+                }
+                else
+                {
+                    result.newestYear = DateTime.Now.ToString("yyyy");
+                }
 
                 List<int> transmissionId = new List<int>();
 

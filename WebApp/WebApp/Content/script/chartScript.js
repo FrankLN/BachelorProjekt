@@ -1,9 +1,10 @@
 ﻿function drawGraph(newestYear) {
-    console.log(newestYear)
-    $('#container').highcharts({
+    //console.log(newestYear)
+    $('#graphContainer').highcharts({
         data: {
             table: 'datatable'
         },
+        exporting: { enabled: false },
         chart: {
             type: 'column'
         },
@@ -19,7 +20,7 @@
         tooltip: {
             formatter: function () {
                 return '<b>' + this.series.name + '</b><br/>' +
-                    this.point.y + ' ' + this.point.name.toLowerCase();
+                    this.point.name.toLowerCase() + ': ' + this.point.y;
             }
         }
     });

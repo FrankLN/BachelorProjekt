@@ -43,7 +43,7 @@
             @foreach (var typeModel in Model)
             {
                 <tr class="trData">
-                    <td class="graphInputButton"> <input type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph" onclick="overlay('@typeModel.EpisodeType','@typeModel.Transmissions')"></td>
+                    <td class="graphInputButton"> <input value="@typeModel.EpisodeType" type="image" class='graphButton' img src="~/Content/img/graph_icon.png" title="Show graph"></td>
                     <td class="episodeType">@Html.DisplayFor(modelItem => typeModel.EpisodeType)</td>
                     <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.Transmissions)</td>
                     <td class="cellWithNumber">@Html.DisplayFor(modelItem => typeModel.ProcentTransmission) %</td>
@@ -55,15 +55,15 @@
 
 
 <div id="overlay">
-    <div>
-        <a title="Close" onclick="overlay('close')" class="close">X</a>
-        <div id="container" ></div>
+    <div id="container">
+        <div id="graphContainer">
+        </div>
 
-        <table id="datatable" style="visibility:hidden">
+        <table id="datatable" style="display:none">
             <thead id="graphHead">
+
             </thead>
-            <tbody id="graphData">
-            </tbody>
+            <tbody id="graphData"></tbody>
         </table>
     </div>
 </div>

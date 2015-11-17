@@ -139,7 +139,7 @@ function updateTable(newModel)
     for (var i = 0; i < newModel.length; i++) {
         html += '<tr class="trData">' +
                     '<td class="graphInputButton">' +
-                        '<input type="image" class="graphButton" img src="http://localhost:5187/Content/img/graph_icon.png" title="Show graph" onclick="' +
+                        '<input type="image" id="openerGraph" class="graphButton" img src="http://localhost:5187/Content/img/graph_icon.png" title="Show graph" onclick="' +
                         'overlay(\'' + newModel[i].EpisodeType + '\', \'' + newModel[i].Transmissions + '\')"></td>' +
                     '<td class="episodeType">' + newModel[i].EpisodeType + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].Transmissions + '</td>' +
