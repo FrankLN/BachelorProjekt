@@ -14,6 +14,7 @@
         "shadowAlpha": 0
     },
     "graphs": [{
+        "lineColor": "#286152",
         "id": "g1",
         "bullet": "round",
         "bulletBorderAlpha": 1,
@@ -72,23 +73,16 @@ function getData()
 {
     getBatteryData();
 
-    return [{
-        "date": "11-11-2015",
-        "value": 1
-    },
-    {
-        "date": "11-12-2015",
-        "value": 2
-    }];
+    return [];
 }
 
 function getBatteryData() {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
+    //console.log(url);
     if (url === "/Index") url = 'getBatteryData';
     else url = 'Battery/getBatteryData';
-    console.log(url);
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
@@ -107,7 +101,7 @@ function getBatteryData() {
 
 function updateData(batteryModel)
 {
-    console.log(batteryModel);
+    //console.log(batteryModel);
 
     chart.dataProvider = batteryModel;
     chart.validateData();

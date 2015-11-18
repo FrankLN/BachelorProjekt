@@ -50,25 +50,6 @@
             </div>
         }*@
 
-        <div id="dialog" style="min-width: 400px;">
-            <div id="container" style="min-width: 400px; min-height: 400px; ">
-                <div class="ui-widget"
-                    style="display: table-cell;
-                    vertical-align: middle;
-                    height: 35px;">
-                    <label for="patientTags" style="padding-right:3px;">Search:</label>
-                    <input id="patientTags" type="text" onkeyup="patientSearch()" style="width: 150px;" />
-                </div>
-                <br />
-                <table id="patientTable">
-
-                </table>
-                <br />
-                <button type="button" id="confirm" class="patientButton" onclick="alertFunction()">Submit</button>
-                <button type="button" id="cancel" class="patientButton">Cancel</button>
-            </div>
-        </div>
-
 
                 <div class="container body-content">
                     @RenderBody()
