@@ -10,6 +10,13 @@
 <script src="~/Content/script/BatteryGraphScript.js"></script>
 <link href="~/Content/style/BatteryGraphStyle.css" rel="stylesheet" type="text/css" />
 
+
+<div class="nav">
+    <ul>
+        <li class="episodeAdmin">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
+        <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Battery", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+    </ul>
+</div>
 <table>
     <thead>
         <tr>

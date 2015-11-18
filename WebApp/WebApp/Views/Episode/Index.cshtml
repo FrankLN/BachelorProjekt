@@ -14,16 +14,23 @@
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
+<div class="nav">
+    <ul>
+        <li class="active">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+        <li class="active">@Html.ActionLink("Battery Administration", "Index", "Battery", new { area = "" }, new { @class = "navbar-brand" })</li>
+    </ul>
+</div>
 
+<div class="datePicker">
+    <p class="date-picker1">Date from:</p>
+    <input id="dpb" class='date-picker1' value="@Model.FirstOrDefault().EpisodeDateMin" onchange="alertFunction()" />
+    <p class="date-picker2">Date to:</p>
+    <input id="dpe" class='date-picker2' value="@Model.FirstOrDefault().EpisodeDateMax" onchange="alertFunction()" />
+</div>
+<div class="patientButton">
+    <button type="button" id="opener" class="patientButton">Choose Patient</button>
+</div>
 
-@*<div class="ui-widget"
-    style="float:right;
-        display: table-cell;
-        vertical-align: middle;
-        height: 35px;">
-    <label for="tags" style="padding-right:3px;">Search:</label>
-    <input id="tags" type="text" onkeyup="search()" />
-</div>*@
     <table>
         <thead>
             <tr>

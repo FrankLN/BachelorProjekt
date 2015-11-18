@@ -46,9 +46,8 @@ namespace WebApp.ViewModels
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        public List<string> Dates { get; set; }
-        public List<string> Patients { get; set; }
         public int TotalTransmissions { get; set; }
+        public string EpisodeDateMin { get; set; }
+        public string EpisodeDateMax { get; set; }
     }
 }

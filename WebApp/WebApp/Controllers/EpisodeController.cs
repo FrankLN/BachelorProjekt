@@ -43,7 +43,6 @@ namespace WebApp.Controllers
             //result.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 6, Date = "20151204073452", Patient = "Kjeld" });
             //result.Add(new Models.DbModel() { EpisodeType = "Power failure", TransmissionId = 7, Date = "20151220113452", Patient = "Egon Olsen" });
 
-
         //    return result;
         //}
 
@@ -76,28 +75,15 @@ namespace WebApp.Controllers
                         dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
                         item.TotalTransmissions);
 
-                    List<string> dates = new List<string>();
-                    List<string> patients = new List<string>();
-                    foreach(var episode in dbModel.pacemakerdataview.Where(m => m.episodeName == item.EpisodeType))
-                    {
-                        dates.Add(episode.episodeDate);
-                        patients.Add(episode.firstName + " " + episode.lastName + "|");
-                    }
+                    d = dbModel.pacemakerdataview.Min(m => m.episodeDate);
+                    item.EpisodeDateMin = d.Substring(6, 2) + "/" + d.Substring(4, 2) + "/" + d.Substring(0, 4);
 
-                    item.Dates = dates;
-                    item.Patients = patients;
+                    de = dbModel.pacemakerdataview.Max(m => m.episodeDate);
+                    item.EpisodeDateMax = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
                 }
 
-                d = dbModel.pacemakerdataview.Min(m => m.episodeDate);
-                d = d.Substring(6, 2) + "/" + d.Substring(4, 2) + "/" + d.Substring(0, 4);
-
-                de = dbModel.pacemakerdataview.Max(m => m.episodeDate);
-                de = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
+                
             }
-
-            ViewBag.DateBegin = d; //20150918153452 ~ 18/09/2015
-            ViewBag.DateEnd = de; //20151220113452 ~ 20/12/2015
-            ViewBag.Header = "Episode Administration";
             return View("Index", eMList);
         }
 
@@ -234,17 +220,6 @@ namespace WebApp.Controllers
                     item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
                         model.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
                         model.Select(m => m.ID).Distinct().Count());
-
-                    List<string> dates = new List<string>();
-                    List<string> patients = new List<string>();
-                    foreach (var episode in model.Where(m => m.episodeName == item.EpisodeType))
-                    {
-                        dates.Add(episode.episodeDate);
-                        patients.Add(episode.firstName + " " + episode.lastName + "|");
-                    }
-
-                    item.Dates = dates;
-                    item.Patients = patients;
                 }
             }
 

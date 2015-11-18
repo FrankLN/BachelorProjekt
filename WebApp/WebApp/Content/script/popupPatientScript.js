@@ -4,7 +4,8 @@
           minWidth: 700,
           closeText: "",
           modal: true,
-          dialogClass: 'no-close'
+          dialogClass: 'no-close',
+          closeOnEscape: false
       });
  
       var backup = [];
@@ -27,6 +28,10 @@
               if (backup.indexOf(patientCheckboxes[i].value) > -1)
               {
                   patientCheckboxes[i].checked = true;
+              }
+              else
+              {
+                  patientCheckboxes[i].checked = false;
               }
           }
           $("#dialog").dialog("close");

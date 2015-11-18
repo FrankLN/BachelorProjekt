@@ -27,28 +27,11 @@
 </head>
 <body>
     <wrapper>
-        @*<div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                        </ul>
-                    </div>
-                </div>
-            </div>*@
         <header>
-            @*<img src="~/Content/img/sjm_logo.jpg" alt="St Jude Medical" />*@
             <img src="~/Content/img/app_name.jpg" alt="Idun.net" style="width: 330px; height: 67px;"/>
             <h2> Login Info</h2>
         </header>
-        @if (ViewBag.Header == "Episode Administration")
+        @*@if (ViewBag.Header == "Episode Administration")
         {
             <div class="nav">
                 <ul>
@@ -65,16 +48,7 @@
                     <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Battery", new { area = "" }, new { @class = "navbar-brand-active" })</li>
                 </ul>
             </div>
-        }
-        <div class="datePicker">
-            <p class="date-picker1">Date from:</p>
-            <input id="dpb" class='date-picker1' value="@ViewBag.DateBegin" onchange="alertFunction()" />
-            <p class="date-picker2">Date to:</p>
-            <input id="dpe" class='date-picker2' value="@ViewBag.DateEnd" onchange="alertFunction()" />
-        </div>
-        <div class="patientButton">
-            <button type="button" id="opener" class="patientButton">Choose Patient</button>
-        </div>
+        }*@
 
         <div id="dialog" style="min-width: 400px;">
             <div id="container" style="min-width: 400px; min-height: 400px; ">
