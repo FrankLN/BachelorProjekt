@@ -44,18 +44,21 @@ namespace WebApp.Controllers
             var thisYear = date.Year;
             var thisMonth = date.Month;
 
-            if(dbModel.batteristatistikview != null)
-            {
-                foreach(var row in dbModel.batteristatistikview.OrderBy(m => m.estimatedDaysOfServiceLeft))
-                {
-                    var tempDate = date.AddDays(row.estimatedDaysOfServiceLeft);
+            model.CurrentYear = thisYear.ToString();
 
-                    model.ByYear[tempDate.Year - thisYear]++;
-                    if (tempDate.Year == thisYear || tempDate.Year == thisYear + 1)
-                        model.ByMonth[tempDate.Month - thisMonth < 0 ? tempDate.Month - thisMonth + 12 : tempDate.Month - thisMonth]++;
-                }
+            if(dbModel.batteristatistikview == null)
+            {
+                return View("Error");
             }
-            ViewBag.CurYear = thisYear;
+
+            foreach(var row in dbModel.batteristatistikview.OrderBy(m => m.estimatedDaysOfServiceLeft))
+            {
+                var tempDate = date.AddDays(row.estimatedDaysOfServiceLeft);
+
+                model.ByYear[tempDate.Year - thisYear]++;
+                if (tempDate.Year == thisYear || tempDate.Year == thisYear + 1)
+                    model.ByMonth[tempDate.Month - thisMonth < 0 ? tempDate.Month - thisMonth + 12 : tempDate.Month - thisMonth]++;
+            }
 
             return View(model);
         }

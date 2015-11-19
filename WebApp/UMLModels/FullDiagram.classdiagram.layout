@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="FullDiagram">
+  <logicalClassDesignerModelMoniker Id="5dbcf330-7a93-4ba4-92fa-f7c45287dbb9" />
+  <nestedChildShapes>
+    <classShape Id="78fa03ee-8d50-41ff-aa91-8e9a8d156c41" absoluteBounds="0.5, 0.75, 2.875, 2.1835936953624091" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="e34a5d4d-8ece-4446-8f8a-f8229d3a1614" LastKnownName="EpsisodeController" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="0457ae1b-3320-42dc-8fd6-a71506c7f101" absoluteBounds="0.515, 1.1400000000000001, 2.8449999999999998, 0.36132811258236563" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="31047938-c191-476c-bbfa-980ecbbd0943" absoluteBounds="0.515, 1.5113281125823657, 2.8449999999999998, 1.3222655827800434" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1b3845c7-cf9d-4b19-a171-d865a4aee488" absoluteBounds="4, 0.75, 2.75, 1.5429687152306237" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="7615eff1-e524-45c9-8e6f-489bca0351bd" LastKnownName="BatteryController" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="32eb2f71-267c-4f6b-89c9-3a5f50ecf0da" absoluteBounds="4.015, 1.1400000000000001, 2.7199999999999998, 0.36132811258236563" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="dd446e90-eddd-4e09-8d60-56568af8de81" absoluteBounds="4.015, 1.5113281125823657, 2.7199999999999998, 0.68164060264825821" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

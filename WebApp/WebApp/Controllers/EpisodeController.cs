@@ -25,114 +25,45 @@ namespace WebApp.Controllers
             }
         }
 
-        // Mockup data created
-        //public System.Data.Entity.DbSet<Models.pacemakerdataview> getFromDB()
-        //{
-        //    System.Data.Entity.DbSet<Models.pacemakerdataview> result;
-
-            //result.Add(new Models.pacemakerdataview() { episodeName = "Aterial fibrillation", ID = 1, episodeDate = "20150918153452", firstName = "Egon", lastName = "Olsen" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Shock", TransmissionId = 1, Date = "20150926103452", Patient = "Egon Olsen" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 2, Date = "20150927213452", Patient = "Benny" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 2, Date = "20151009063452", Patient = "Benny" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 3, Date = "20151016123452", Patient = "Kjeld" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Shock", TransmissionId = 4, Date = "20151020053452", Patient = "Egon Olsen" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 4, Date = "20151108013452", Patient = "Egon Olsen" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5, Date = "20151112153452", Patient = "Benny" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5, Date = "20151122053452", Patient = "Benny" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Other", TransmissionId = 5, Date = "20151126043452", Patient = "Benny" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Aterial fibrillation", TransmissionId = 6, Date = "20151204073452", Patient = "Kjeld" });
-            //result.Add(new Models.DbModel() { EpisodeType = "Power failure", TransmissionId = 7, Date = "20151220113452", Patient = "Egon Olsen" });
-
-        //    return result;
-        //}
-
         // GET: Episode
         [HttpGet]
         public ActionResult Index()
         {
             List<ViewModels.EpisodeViewModel> eMList = new List<ViewModels.EpisodeViewModel>();
 
-            string de = "00000000000000", d = "00000000000000";
-
-            if (dbModel.pacemakerdataview != null)
+            if (dbModel.pacemakerdataview == null)
             {
-                foreach (var episode in dbModel.pacemakerdataview.Select(m => m.episodeName).Distinct())
-                {
-                    var tempObj = new ViewModels.EpisodeViewModel();
-
-                    tempObj.EpisodeType = episode;
-
-                    eMList.Add(tempObj);
-                }
-
-                foreach (var item in eMList)
-                {
-                    item.TotalTransmissions = dbModel.pacemakerdataview.Select(m => m.ID).Distinct().Count();
-                    item.Transmissions = dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType)
-                                                .Select(modelItem => modelItem.ID).Distinct().Count();
-
-                    item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
-                        dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
-                        item.TotalTransmissions);
-
-                    d = dbModel.pacemakerdataview.Min(m => m.episodeDate);
-                    item.EpisodeDateMin = d.Substring(6, 2) + "/" + d.Substring(4, 2) + "/" + d.Substring(0, 4);
-
-                    de = dbModel.pacemakerdataview.Max(m => m.episodeDate);
-                    item.EpisodeDateMax = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
-                }
-
-                
+                return View("Error");
             }
+
+            foreach (var episode in dbModel.pacemakerdataview.Select(m => m.episodeName).Distinct())
+            {
+                var tempObj = new ViewModels.EpisodeViewModel();
+
+                tempObj.EpisodeType = episode;
+
+                eMList.Add(tempObj);
+            }
+
+            foreach (var item in eMList)
+            {
+                item.TotalTransmissions = dbModel.pacemakerdataview.Select(m => m.ID).Distinct().Count();
+                item.Transmissions = dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType)
+                                            .Select(modelItem => modelItem.ID).Distinct().Count();
+
+                item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
+                    dbModel.pacemakerdataview.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
+                    item.TotalTransmissions);
+
+                var d = dbModel.pacemakerdataview.Min(m => m.episodeDate);
+                item.EpisodeDateMin = d.Substring(6, 2) + "/" + d.Substring(4, 2) + "/" + d.Substring(0, 4);
+
+                var de = dbModel.pacemakerdataview.Max(m => m.episodeDate);
+                item.EpisodeDateMax = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
+            }
+            
+
             return View("Index", eMList);
-        }
-
-        [HttpGet]
-        public JsonResult getTags()
-        {
-            List<string> result = new List<string>();
-
-            if (dbModel.pacemakerdataview != null)
-            {
-                var model = dbModel.pacemakerdataview;
-                foreach (var item in model)
-                {
-                    if (!result.Contains(item.episodeDate))
-                    {
-                        result.Add(item.episodeDate);
-                    }
-                    if (!result.Contains(item.episodeName))
-                    {
-                        result.Add(item.episodeName);
-                    }
-                    if (!result.Contains(item.firstName))
-                    {
-                        result.Add(item.firstName);
-                    }
-                    if (!result.Contains(item.lastName))
-                    {
-                        result.Add(item.lastName);
-                    }
-                    if (!result.Contains(item.name))
-                    {
-                        result.Add(item.name);
-                    }
-                    if (!result.Contains(item.pacemakerSerialNumber.ToString()))
-                    {
-                        result.Add(item.pacemakerSerialNumber.ToString());
-                    }
-                    if (!result.Contains(item.transmissionDate))
-                    {
-                        result.Add(item.transmissionDate);
-                    }
-                    if (!result.Contains(item.type))
-                    {
-                        result.Add(item.type);
-                    }
-                }
-            }
-
-            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

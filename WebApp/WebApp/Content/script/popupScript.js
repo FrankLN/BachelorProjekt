@@ -7,25 +7,28 @@
         modal: true
     });
 
+    setOnClickListener();
+});
+
+function setOnClickListener()
+{
     $(".graphButton").click(function (test) {
         console.log("test0");
         var typeName = 'VF'
         var i = 1;
         var o;
-        for (var obj in test)
-        {
+        for (var obj in test) {
             //console.log("test" + i);
-            if (i === 6)
-            {
+            if (i === 6) {
                 o = test[obj];
             }
             //console.log(test[obj]);
             i++;
         }
-        
+
         typeName = o.value;
 
-        
+
         var db = document.getElementById('dpb').value;
         var de = document.getElementById('dpe').value;
 
@@ -48,11 +51,7 @@
 
         $("#overlay").dialog("open");
     });
-
-    $("#closer").click(function () {
-        $("#overlay").dialog("close");
-    });
-});
+}
 
 
 function overlay(typeName, count) {

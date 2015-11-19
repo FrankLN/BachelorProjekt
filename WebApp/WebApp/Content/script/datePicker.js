@@ -6,82 +6,7 @@ $(function(){
     $('.date-picker2').datepicker({ dateFormat: 'dd/mm/yy' });
 })
 
-$(function() {
-    var availableTags = [];
-
-    //$("#tags").autocomplete({
-    //    source: availableTags
-    //});
-
-    $("#patientTags").autocomplete({
-        source: availableTags
-    });
-
-
-    //getTags();
-    getPatientTags();
-});
-
-function getPatientTags() {
-    var url = window.location.href;
-    url = url.substring(url.lastIndexOf('/'));
-    //console.log(url);
-    if (url === "/Index") url = 'getPatientTags';
-    else url = 'Episode/getPatientTags';
-    //console.log(url);
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'json',
-        cache: false,
-        success: function (model) {
-            //console.log(model);
-            $("#patientTags").autocomplete('option', 'source', model)
-        },
-        error: function () {
-            alert('Error occured');
-        }
-    });
-}
-
-function getTags() {
-    var url = window.location.href;
-    url = url.substring(url.lastIndexOf('/'));
-    //console.log(url);
-    if (url === "/Index") url = 'getTags';
-    else url = 'Episode/getTags';
-    //console.log(url);
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'json',
-        cache: false,
-        success: function (model) {
-            //console.log(model);
-            $("#tags").autocomplete('option', 'source', model)
-        },
-        error: function () {
-            alert('Error occured');
-        }
-    });
-}
-
-//function search() {
-//    var searchText = document.getElementById("tags");
-//    alertFunction(searchText.value)
-//}
-
 function alertFunction() {
-    //if (document.getElementById('tags').value.length >= 2) {
-    //    seachText = document.getElementById('tags').value;
-    //}
-    //else {
-    //    seachText = typeof seachText !== 'undefined' ? seachText : "x";
-    //}
-
-    //console.log(seachText);
-    //console.log(seachText.length);
-
     var dpb = document.getElementById("dpb");
     var dpe = document.getElementById("dpe");
 
@@ -139,8 +64,7 @@ function updateTable(newModel)
     for (var i = 0; i < newModel.length; i++) {
         html += '<tr class="trData">' +
                     '<td class="graphInputButton">' +
-                        '<input type="image" id="openerGraph" class="graphButton" img src="http://localhost:5187/Content/img/graph_icon.png" title="Show graph" onclick="' +
-                        'overlay(\'' + newModel[i].EpisodeType + '\', \'' + newModel[i].Transmissions + '\')"></td>' +
+                        '<input value="' + newModel[i].EpisodeType + '" type="image" class="graphButton" img src="http://localhost:5187/Content/img/graph_icon.png" title="Show graph"></td>' +
                     '<td class="episodeType">' + newModel[i].EpisodeType + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].Transmissions + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].ProcentTransmission + ' %</td>' +
@@ -149,6 +73,8 @@ function updateTable(newModel)
     }
 
     table.innerHTML = html;
+
+    setOnClickListener();
 }
 
 function getNewModel(episodes, dates, patients, searchText) {
@@ -190,24 +116,6 @@ function getEpisodeList() {
 
     //console.log(episodeList);
     return episodeList;
-}
-
-
-function getPatientList() {
-    var patients = document.querySelectorAll(".patientCheckbox:checked");
-    var i = 0;
-    var patientList = [];
-    //console.log(patients)
-    if (patients.length > 0) {
-        while (i < patients.length) {
-            //console.log(patients[i].value);
-            patientList.push(patients[i].value);
-            i++;
-        }
-    }
-
-    //console.log(patientList);
-    return patientList;
 }
 
 
