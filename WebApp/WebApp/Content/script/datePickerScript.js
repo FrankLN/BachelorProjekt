@@ -1,8 +1,6 @@
 ﻿$(function(){
     $('.date-picker1').datepicker({ dateFormat: 'dd/mm/yy' });
-})
 
-$(function(){
     $('.date-picker2').datepicker({ dateFormat: 'dd/mm/yy' });
 })
 
@@ -37,7 +35,7 @@ function alertFunction() {
     //console.log(dates);
     //console.log(patients);
 
-    getNewModel(episodes, dates, patients, 'x');
+    getNewModel(episodes, dates, patients);
 }
 
 function updateTable(newModel)
@@ -77,13 +75,13 @@ function updateTable(newModel)
     setOnClickListener();
 }
 
-function getNewModel(episodes, dates, patients, searchText) {
+function getNewModel(episodes, dates, patients) {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
     //console.log(url);
     if (url === "/Index") url = 'getNewModel';
     else url = 'Episode/getNewModel';
-    url = url + '?episodes=' + episodes + '&datesSelected=' + dates + '&patientsChecked=' + patients + '&searchText=' + searchText;
+    url = url + '?episodes=' + episodes + '&datesSelected=' + dates + '&patientsChecked=' + patients;
     //console.log(url);
     $.ajax({
         url: url,
@@ -117,11 +115,3 @@ function getEpisodeList() {
     //console.log(episodeList);
     return episodeList;
 }
-
-
-var redirect = function (url, method) {
-    var form = document.createElement('form');
-    form.method = method;
-    form.action = url;
-    form.submit();
-};

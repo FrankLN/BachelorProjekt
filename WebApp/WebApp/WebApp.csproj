@@ -95,13 +95,13 @@
   <ItemGroup>
     <Content Include="Content\img\app_name.jpg" />
     <Content Include="Content\img\graph_icon.png" />
-    <Content Include="Content\script\BatteryGraphScript.js" />
+    <Content Include="Content\script\batteryGraphScript.js" />
     <Content Include="Content\script\chartScript.js" />
-    <Content Include="Content\script\datePicker.js" />
+    <Content Include="Content\script\datePickerScript.js" />
     <Content Include="Content\script\dropdownScript.js" />
     <Content Include="Content\script\popupPatientScript.js" />
     <Content Include="Content\script\popupScript.js" />
-    <Content Include="Content\style\BatteryGraphStyle.css" />
+    <Content Include="Content\style\batteryGraphStyle.css" />
     <Content Include="Content\style\buttonStyle.css" />
     <Content Include="Content\style\dropdownStyle.css" />
     <Content Include="Content\style\homeStyle.css" />

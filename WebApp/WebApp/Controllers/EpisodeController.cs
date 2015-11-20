@@ -103,7 +103,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public JsonResult getNewModel(string episodes, string datesSelected, string patientsChecked, string searchText)
+        public JsonResult getNewModel(string episodes, string datesSelected, string patientsChecked)
         {
             string[] episodeList = episodes.Split('|');
             string[] dateList = datesSelected.Split('|');
@@ -118,20 +118,6 @@ namespace WebApp.Controllers
                 var model = dbModel.pacemakerdataview.Where(m => episodeList.Contains(m.episodeName) &&
                     (m.episodeDate.CompareTo(db) >= 0 &&  m.episodeDate.CompareTo(de) <= 0) &&
                     patientList.Contains(m.firstName + " " + m.lastName));
-
-                if(searchText.Length >= 2)
-                {
-                    model = model.Where(m => m.episodeName.ToLower().Contains(searchText.ToLower()) ||
-                                        m.firstName.ToLower().Contains(searchText.ToLower()) ||
-                                        m.lastName.ToLower().Contains(searchText.ToLower()) ||
-                                        m.name.ToLower().Contains(searchText.ToLower()) ||
-                                        m.pacemakerSerialNumber.Contains(searchText) ||
-                                        m.transmissionDate.ToLower().Contains(searchText.ToLower()) ||
-                                        m.type.ToLower().Contains(searchText.ToLower()) ||
-                                        m.episodeDate.ToLower().Contains(searchText.ToLower())
-                                        );
-                }
-
 
                 foreach (var episode in model.Select(m => m.episodeName).Distinct())
                 {
@@ -221,19 +207,19 @@ namespace WebApp.Controllers
 
                 if (data.Count() > 0)
                 {
-                    result.newestYear = data.Max(m => m.episodeDate);
-                    result.newestYear = result.newestYear.Substring(0, 4);
+                    result.NewestYear = data.Max(m => m.episodeDate);
+                    result.NewestYear = result.NewestYear.Substring(0, 4);
                 }
                 else
                 {
-                    result.newestYear = DateTime.Now.ToString("yyyy");
+                    result.NewestYear = DateTime.Now.ToString("yyyy");
                 }
 
                 List<int> transmissionId = new List<int>();
 
                 foreach (var model in data)
                 {
-                    if (model.episodeDate.Substring(0, 4) == result.newestYear && !transmissionId.Contains(model.ID))
+                    if (model.episodeDate.Substring(0, 4) == result.NewestYear && !transmissionId.Contains(model.ID))
                     {
                         transmissionId.Add(model.ID);
                         switch (model.episodeDate.Substring(4, 2))

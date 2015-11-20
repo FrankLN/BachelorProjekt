@@ -1,4 +1,5 @@
-﻿var chart = AmCharts.makeChart("chartdiv", {
+﻿// This code was fetched from http://www.amcharts.com/demos/date-based-data/
+var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
     "marginRight": 80,
@@ -68,6 +69,8 @@ zoomChart();
 function zoomChart() {
     chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
 }
+
+// The above code is from http://www.amcharts.com/demos/date-based-data/
 
 function getData()
 {
