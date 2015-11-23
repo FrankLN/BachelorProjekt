@@ -14,6 +14,7 @@
         "shadowAlpha": 0
     },
     "graphs": [{
+        "lineColor": "#b7e021",
         "id": "g1",
         "bullet": "round",
         "bulletBorderAlpha": 1,
