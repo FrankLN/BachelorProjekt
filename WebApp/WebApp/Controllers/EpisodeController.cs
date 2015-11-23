@@ -36,7 +36,7 @@ namespace WebApp.Controllers
                 return View("Error");
             }
 
-            foreach (var episode in dbModel.pacemakerdataview.Select(m => m.episodeName).Distinct())
+            foreach (var episode in dbModel.pacemakerdataview.Where(m => m.episodeName != "").Select(m => m.episodeName).Distinct())
             {
                 var tempObj = new ViewModels.EpisodeViewModel();
 
@@ -61,7 +61,6 @@ namespace WebApp.Controllers
                 var de = dbModel.pacemakerdataview.Max(m => m.episodeDate);
                 item.EpisodeDateMax = de.Substring(6, 2) + "/" + de.Substring(4, 2) + "/" + de.Substring(0, 4);
             }
-            
 
             return View("Index", eMList);
         }
@@ -119,7 +118,7 @@ namespace WebApp.Controllers
                     (m.episodeDate.CompareTo(db) >= 0 &&  m.episodeDate.CompareTo(de) <= 0) &&
                     patientList.Contains(m.firstName + " " + m.lastName));
 
-                foreach (var episode in model.Select(m => m.episodeName).Distinct())
+                foreach (var episode in model.Where(m => m.episodeName != "").Select(m => m.episodeName).Distinct())
                 {
                     var tempObj = new ViewModels.EpisodeViewModel();
 
@@ -150,7 +149,7 @@ namespace WebApp.Controllers
 
             if (dbModel.pacemakerdataview != null)
             {
-                foreach (var episode in dbModel.pacemakerdataview.Select(m => m.episodeName).Distinct())
+                foreach (var episode in dbModel.pacemakerdataview.Where(m => m.episodeName != "").Select(m => m.episodeName).Distinct())
                 {
                     result.Add(episode);
                 }

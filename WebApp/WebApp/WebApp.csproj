@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EpisodeController.cs" />
     <Compile Include="Controllers\BatteryController.cs" />
+    <Compile Include="Controllers\TransmissionController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\ModelHelpers.cs" />
     <Compile Include="Global.asax.cs">
@@ -139,6 +140,9 @@
     </Compile>
     <Compile Include="Helpers\TooltipAttribute.cs" />
     <Compile Include="Models\batteristatistikview.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\linktransmissionepisode.cs">
       <DependentUpon>PacemakerDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\pacemakerdataview.cs">
@@ -159,6 +163,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PacemakerDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblepisodetype.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblpacemakerunit.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblpacemakerunittype.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblpatient.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbltransmission.cs">
+      <DependentUpon>PacemakerDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BatteryGraphViewModel.cs" />
     <Compile Include="ViewModels\BatteryJSViewModel.cs" />
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
@@ -173,6 +192,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Battery\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Transmission\Index.cshtml" />
+    <Content Include="Views\Transmission\Succes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,7 +201,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
