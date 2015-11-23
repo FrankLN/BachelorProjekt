@@ -95,51 +95,17 @@
   <ItemGroup>
     <Content Include="Content\img\app_name.jpg" />
     <Content Include="Content\img\graph_icon.png" />
-    <Content Include="Content\script\BatteryGraphScript.js" />
+    <Content Include="Content\script\batteryGraphScript.js" />
     <Content Include="Content\script\chartScript.js" />
-    <Content Include="Content\script\datePicker.js" />
+    <Content Include="Content\script\datePickerScript.js" />
     <Content Include="Content\script\dropdownScript.js" />
     <Content Include="Content\script\popupPatientScript.js" />
     <Content Include="Content\script\popupScript.js" />
-    <Content Include="Content\style\BatteryGraphStyle.css" />
+    <Content Include="Content\style\batteryGraphStyle.css" />
     <Content Include="Content\style\buttonStyle.css" />
     <Content Include="Content\style\dropdownStyle.css" />
     <Content Include="Content\style\homeStyle.css" />
-    <Content Include="Content\style\datepickerStyle.css" />
     <Content Include="Content\style\tableStyle.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\PacemakerDB.edmx">
@@ -159,30 +125,6 @@
       <DependentUpon>PacemakerDB.edmx</DependentUpon>
       <LastGenOutput>PacemakerDB.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.4.js" />
-    <Content Include="Scripts\jquery-1.6.4.min.js" />
-    <Content Include="Scripts\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\jquery-ui-1.11.4.js" />
-    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
-    <Content Include="Scripts\MochiKit\customize.html" />
-    <Content Include="Scripts\MochiKit\MochiKit.js" />
-    <Content Include="Scripts\MochiKit\__package__.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\PlotKit\Base.js" />
-    <Content Include="Scripts\PlotKit\Canvas.js" />
-    <Content Include="Scripts\PlotKit\EasyPlot.js" />
-    <Content Include="Scripts\PlotKit\excanvas.js" />
-    <Content Include="Scripts\PlotKit\Layout.js" />
-    <Content Include="Scripts\PlotKit\PlotKit.js" />
-    <Content Include="Scripts\PlotKit\PlotKit_Packed.js" />
-    <Content Include="Scripts\PlotKit\SVG.js" />
-    <Content Include="Scripts\PlotKit\SweetCanvas.js" />
-    <Content Include="Scripts\PlotKit\SweetSVG.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Episode\Index.cshtml" />
   </ItemGroup>
@@ -199,7 +141,6 @@
     <Compile Include="Models\batteristatistikview.cs">
       <DependentUpon>PacemakerDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbModel.cs" />
     <Compile Include="Models\pacemakerdataview.cs">
       <DependentUpon>PacemakerDB.tt</DependentUpon>
     </Compile>
@@ -220,7 +161,6 @@
     </Compile>
     <Compile Include="ViewModels\BatteryGraphViewModel.cs" />
     <Compile Include="ViewModels\BatteryJSViewModel.cs" />
-    <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
@@ -232,8 +172,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Battery\Index.cshtml" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Scripts\PlotKit\dummy.svg" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -241,12 +180,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

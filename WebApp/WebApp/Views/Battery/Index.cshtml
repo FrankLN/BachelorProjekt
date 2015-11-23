@@ -7,8 +7,8 @@
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
 
-<script src="~/Content/script/BatteryGraphScript.js"></script>
-<link href="~/Content/style/BatteryGraphStyle.css" rel="stylesheet" type="text/css" />
+<script src="~/Content/script/batteryGraphScript.js"></script>
+<link href="~/Content/style/batteryGraphStyle.css" rel="stylesheet" type="text/css" />
 
 
 <div class="nav">
@@ -17,6 +17,9 @@
         <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Battery", new { area = "" }, new { @class = "navbar-brand-active" })</li>
     </ul>
 </div>
+
+<div id="chartdiv"></div>
+
 <table>
     <thead>
         <tr>
@@ -35,5 +38,3 @@
         }
     </tbody>
 </table>
-
-<div id="chartdiv"></div>

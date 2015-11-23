@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+}
+
+<div class="nav">
+    <ul>
+        <li class="episodeAdmin">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+        <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Battery", new { area = "" }, new { @class = "navbar-brand" })</li>
+    </ul>
+</div>
+
+<div>
+    <h1>An error happened</h1>
+    <p>Service is temporarily unavailable, please try again later.</p>
+</div>
+

@@ -1,4 +1,5 @@
-﻿var chart = AmCharts.makeChart("chartdiv", {
+﻿// This code was fetched from http://www.amcharts.com/demos/date-based-data/
+var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
     "marginRight": 80,
@@ -14,7 +15,11 @@
         "shadowAlpha": 0
     },
     "graphs": [{
+<<<<<<< HEAD
         "lineColor": "#b7e021",
+=======
+        "lineColor": "#286152",
+>>>>>>> 5493ba34352729ef20713131bb26858bcbcc1e7d
         "id": "g1",
         "bullet": "round",
         "bulletBorderAlpha": 1,
@@ -69,27 +74,22 @@ function zoomChart() {
     chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
 }
 
+// The above code is from http://www.amcharts.com/demos/date-based-data/
+
 function getData()
 {
     getBatteryData();
 
-    return [{
-        "date": "11-11-2015",
-        "value": 1
-    },
-    {
-        "date": "11-12-2015",
-        "value": 2
-    }];
+    return [];
 }
 
 function getBatteryData() {
     var url = window.location.href;
     url = url.substring(url.lastIndexOf('/'));
-    console.log(url);
+    //console.log(url);
     if (url === "/Index") url = 'getBatteryData';
     else url = 'Battery/getBatteryData';
-    console.log(url);
+    //console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
@@ -108,7 +108,7 @@ function getBatteryData() {
 
 function updateData(batteryModel)
 {
-    console.log(batteryModel);
+    //console.log(batteryModel);
 
     chart.dataProvider = batteryModel;
     chart.validateData();

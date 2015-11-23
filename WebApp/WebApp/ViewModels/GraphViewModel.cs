@@ -20,6 +20,6 @@ namespace WebApp.ViewModels
         public int Oct { get; set; }
         public int Nov { get; set; }
         public int Dec { get; set; }
-        public string newestYear { get; set; }
+        public string NewestYear { get; set; }
     }
 }

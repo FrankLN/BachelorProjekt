@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Helpers
 {
+    // Class code found at http://stackoverflow.com/a/3711878
     public static class HtmlHelpers
     {
         public static MvcHtmlString ToolTipFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression)

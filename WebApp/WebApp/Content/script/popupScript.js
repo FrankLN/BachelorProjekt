@@ -7,25 +7,28 @@
         modal: true
     });
 
+    setOnClickListener();
+});
+
+function setOnClickListener()
+{
     $(".graphButton").click(function (test) {
         console.log("test0");
         var typeName = 'VF'
         var i = 1;
         var o;
-        for (var obj in test)
-        {
+        for (var obj in test) {
             //console.log("test" + i);
-            if (i === 6)
-            {
+            if (i === 6) {
                 o = test[obj];
             }
             //console.log(test[obj]);
             i++;
         }
-        
+
         typeName = o.value;
 
-        
+
         var db = document.getElementById('dpb').value;
         var de = document.getElementById('dpe').value;
 
@@ -48,37 +51,6 @@
 
         $("#overlay").dialog("open");
     });
-
-    $("#closer").click(function () {
-        $("#overlay").dialog("close");
-    });
-});
-
-
-function overlay(typeName, count) {
-    if (typeName != 'close') {
-        var db = document.getElementById('dpb').value;
-        var de = document.getElementById('dpe').value;
-
-        db = db.substring(6, 10) + db.substring(3, 5) + db.substring(0, 2) + "000000";
-        de = de.substring(6, 10) + de.substring(3, 5) + de.substring(0, 2) + "235959";
-
-        console.log(db + " " + de);
-
-        var patientList = getPatientList();
-        var patients = "";
-        for (var i = 0; i < patientList.length; i++) {
-            patients += patientList[i] + "|";
-            //console.log(patients);
-        }
-        
-        getGraphData(typeName, db, de, patients);
-
-        var graphHead = document.getElementById('graphHead');
-        graphHead.innerHTML = "<tr><th></th><th>" + typeName + "</th></tr>";
-    }
-    el = document.getElementById("overlay");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 }
 
 function makeTable(graphModel)
@@ -118,7 +90,7 @@ function makeTable(graphModel)
 
     graphData.innerHTML = result;
     //console.log(graphModel.newestYear);
-    drawGraph(graphModel.newestYear);
+    drawGraph(graphModel.NewestYear);
 }
 
 function getGraphData(episodeType, db, de, patientsChecked) {

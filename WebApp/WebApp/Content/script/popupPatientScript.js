@@ -41,8 +41,6 @@
           //console.log("confirm: " + backup);
           $("#dialog").dialog("close");
       });
-
-      $("#dialog").onclose
 });
 
 $(document).ready(function () {
@@ -56,10 +54,10 @@ function makePatientTable(patientModel) {
 
     //console.log(patientModel);
     
-    var result = "<thead><tr><th><input id='checkAll' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th><th>Patient securitynumber</th><th>Pacemaker serialnumber</th><th>Pacemaker name</th><th>Pacemaker type</th></tr></thead>";
+    var result = "<thead><tr><th><input id='checkAll' tabindex='-1' type=checkbox onClick='checkAll()' checked /></th><th>Patient name</th><th>Patient securitynumber</th><th>Pacemaker serialnumber</th><th>Pacemaker name</th><th>Pacemaker type</th></tr></thead>";
     
     for (var patient in patientModel) {
-        result += "<tr><td><input type=checkbox class='patientCheckbox' value='" + patientModel[patient].PatientName + "' checked /></td><td>" +
+        result += "<tr><td><input tabindex='-1' type=checkbox class='patientCheckbox' value='" + patientModel[patient].PatientName + "' checked /></td><td>" +
             patientModel[patient].PatientName + "</td><td>" +
             patientModel[patient].SecurityNumber + "</td><td>" +
             patientModel[patient].PacemakerSerialnumber + "</td><td>" +
@@ -153,6 +151,40 @@ function getPatientData(filter) {
     });
 }
 
+$(function () {
+    var availableTags = [];
+
+    $("#patientTags").autocomplete({
+        source: availableTags,
+        minLength: 2
+    });
+
+    getPatientTags();
+});
+
+function getPatientTags() {
+    var url = window.location.href;
+    url = url.substring(url.lastIndexOf('/'));
+    //console.log(url);
+    if (url === "/Index") url = 'getPatientTags';
+    else url = 'Episode/getPatientTags';
+    //console.log(url);
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        success: function (model) {
+            //console.log(model);
+            $("#patientTags").autocomplete('option', 'source', model)
+        },
+        error: function () {
+            alert('Error occured');
+        }
+    });
+}
+
+
 function patientSearch() {
     var searchText = document.getElementById("patientTags");
     updatePatientTable(searchText.value);
@@ -187,4 +219,21 @@ function updatePatientTable(searchText)
             rows[i].style.display = "none";
         }
     }
+}
+
+function getPatientList() {
+    var patients = document.querySelectorAll(".patientCheckbox:checked");
+    var i = 0;
+    var patientList = [];
+    //console.log(patients)
+    if (patients.length > 0) {
+        while (i < patients.length) {
+            //console.log(patients[i].value);
+            patientList.push(patients[i].value);
+            i++;
+        }
+    }
+
+    //console.log(patientList);
+    return patientList;
 }

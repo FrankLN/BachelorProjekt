@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ea8b5690-ed52-4029-948f-3105cd5f0e2e" name="EpisodeController" linkedPackageId="26631f3b-d524-46c3-9d71-e3b31039882e" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="85c54309-c947-421a-8173-5cba36b0e320" name="EpsisodeController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b990c5b0-9805-472b-9af2-af0a7abab003" />
+        <ownedAttributesInternal>
+          <property Id="441af414-f914-4371-891e-1934b3c7314b" name="dbModel" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="73c427ab-26a1-4765-9eff-ac4506802543" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="dce0ae94-4a55-4355-8e4a-cf27346e33a0" LastKnownName="pacemakerdataEntities" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7a4c6692-34e3-4743-80e9-e8a4f178b7de" name="Index" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a9e522ec-228a-452c-8916-d0e191ff8c25" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="17ea1ff6-0d23-4d13-bc97-56a9700f1c48" direction="Return" isUnique="false">
+                  <elementDefinition Id="8fac75ea-6999-4d99-9043-fcb40cfd1482" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2659eaae-0155-402d-838f-172d2447ee40" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0711cc95-afdd-4106-8ede-4d3455f2e504" name="EpisodeController" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="db805d83-eabe-4602-b25f-a27d92bed3f1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a5dfa1dc-b800-4464-b4fd-d3612a4722ac" direction="Return" isUnique="false">
+                  <elementDefinition Id="36ff2892-0465-414a-b773-76f703a963f8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="627fda47-d2d0-46d1-87ce-b3e282e3bcb7" LastKnownName="EpisodeController" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b92734ad-56c9-4fd1-aebb-b7a68450cbc4" name="getPatientsTag" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="30f567c7-510b-4377-84c0-7cffd8b78639" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c829fc0a-db36-41f6-aafc-4d71c5f90ca7" direction="Return" isUnique="false">
+                  <elementDefinition Id="f1df2b24-6474-477f-bd98-c5905f78c3b8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78f6b3fb-c5f9-4734-ae0c-15d7a1a6c311" LastKnownName="JsonResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b25a6597-eed6-4a48-9867-0c79c7d9edde" name="getNewModel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a100141c-519c-4db3-a680-f2c545dd53f9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0f01badc-347c-4c98-b495-ee90baaf8a00" direction="Return" isUnique="false">
+                  <elementDefinition Id="d03502d8-75b4-491f-a55c-d9e8c39b4379" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78f6b3fb-c5f9-4734-ae0c-15d7a1a6c311" LastKnownName="JsonResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="d8cb6470-e133-4e7d-ad38-48095e338692" name="getEpisodes" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="162f1c1a-ee4a-4634-b7dc-2042fcc5411e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f6bc4049-64b0-4b08-b3c4-62f13c3fb201" direction="Return" isUnique="false">
+                  <elementDefinition Id="33fc5e4e-13f6-4961-92dc-d3ca4425b30e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78f6b3fb-c5f9-4734-ae0c-15d7a1a6c311" LastKnownName="JsonResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="585172de-9814-48cb-b4ef-8f0137e1f2bd" name="getPatients" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c3c370f5-b17a-404e-8484-63c602e84759" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5a7eca9d-66f9-4cc3-bd39-c029969da83d" direction="Return" isUnique="false">
+                  <elementDefinition Id="f5307f9d-0ded-4509-8ba4-a8aeb5951119" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78f6b3fb-c5f9-4734-ae0c-15d7a1a6c311" LastKnownName="JsonResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6c427d0d-dd8f-4d00-a564-8a8e1034d03b" name="getGraphData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="344eb5c7-283f-4d59-82bc-eaf92dbb0188" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="92ed4248-17ac-485c-8043-7e40460c4d56" direction="Return" isUnique="false">
+                  <elementDefinition Id="3e3627a0-ce5f-4b86-91e4-1bfbb3fdc1a8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78f6b3fb-c5f9-4734-ae0c-15d7a1a6c311" LastKnownName="JsonResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="627fda47-d2d0-46d1-87ce-b3e282e3bcb7" name="EpisodeController" isAbstract="false" isLeaf="false" cachedFullName="EpisodeController">
+        <elementDefinition Id="8d394496-2e5d-4272-bba5-907474f2f0fe" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="78f6b3fb-c5f9-4734-ae0c-15d7a1a6c311" name="JsonResult" isAbstract="false" isLeaf="false" cachedFullName="JsonResult">
+        <elementDefinition Id="2bc0f3da-377e-4eca-8899-7c0f2c918b99" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2659eaae-0155-402d-838f-172d2447ee40" name="ActionResult" isAbstract="false" isLeaf="false" cachedFullName="ActionResult">
+        <elementDefinition Id="21065eeb-3642-4a1d-91fc-e6efab63597f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="dce0ae94-4a55-4355-8e4a-cf27346e33a0" name="pacemakerdataEntities" isAbstract="false" isLeaf="false" cachedFullName="pacemakerdataEntities">
+        <elementDefinition Id="ffb48735-be1c-43da-ba8e-ad675c7ae84d" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="26631f3b-d524-46c3-9d71-e3b31039882e" name="UMLModels">
+    <elementDefinition Id="eb830b44-f5fa-44f0-9d7b-eb7d83ae48ad" />
+    <profileInstances>
+      <packageHasProfileInstances Id="6690e0a3-0fca-4d97-af6f-775f37eb3fdb">
+        <profileInstance Id="c0d93677-20a0-4c18-a03b-5a4969887106" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="419a0ae3-ffc1-4e4f-8379-8c9cb4d75a53">
+        <profileInstance Id="dee94bd4-f397-4fbd-a5da-4976aecb4381" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

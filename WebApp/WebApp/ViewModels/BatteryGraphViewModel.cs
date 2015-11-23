@@ -11,5 +11,6 @@ namespace WebApp.ViewModels
         public List<int> ByYear { get; set; }
         public List<int> ByMonth { get; set; }
         public List<string> MonthName { get; set; }
+        public string CurrentYear { get; set; }
     }
 }

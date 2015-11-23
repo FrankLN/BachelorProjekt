@@ -9,7 +9,6 @@ namespace WebApp.ViewModels
     class BatteryJSViewModel
     {
         public string date { get; set; }
-
         public int value { get; set; }
     }
 }
