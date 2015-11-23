@@ -15,7 +15,11 @@ var chart = AmCharts.makeChart("chartdiv", {
         "shadowAlpha": 0
     },
     "graphs": [{
+<<<<<<< HEAD
+        "lineColor": "#b7e021",
+=======
         "lineColor": "#286152",
+>>>>>>> 5493ba34352729ef20713131bb26858bcbcc1e7d
         "id": "g1",
         "bullet": "round",
         "bulletBorderAlpha": 1,
