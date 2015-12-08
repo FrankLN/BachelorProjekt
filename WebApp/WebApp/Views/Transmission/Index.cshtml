@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="nav">
+    <ul>
+        <li class="episodeAdmin">@Html.ActionLink("Episode Administration", "Index", "Episode", new { area = "" }, new { @class = "navbar-brand" })</li>
+        <li class="batteryAdmin">@Html.ActionLink("Battery Administration", "Index", "Battery", new { area = "" }, new { @class = "navbar-brand" })</li>
+        <li class="batteryAdmin">@Html.ActionLink("Transmission Administration", "Index", "Transmission", new { area = "" }, new { @class = "navbar-brand-active" })</li>
+    </ul>
+</div>
+
+
+<form action="" method="post" enctype="multipart/form-data">
+
+    <label for="files">Filename:</label>
+    <input type="file" name="files" id="files" multiple/>
+
+    <input type="submit" />
+</form>

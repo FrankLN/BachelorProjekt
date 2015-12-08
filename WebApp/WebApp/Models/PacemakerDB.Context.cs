@@ -27,5 +27,11 @@ namespace WebApp.Models
     
         public DbSet<pacemakerdataview> pacemakerdataview { get; set; }
         public DbSet<batteristatistikview> batteristatistikview { get; set; }
+        public DbSet<linktransmissionepisode> linktransmissionepisode { get; set; }
+        public DbSet<tblepisodetype> tblepisodetype { get; set; }
+        public DbSet<tblpacemakerunit> tblpacemakerunit { get; set; }
+        public DbSet<tblpatient> tblpatient { get; set; }
+        public DbSet<tbltransmission> tbltransmission { get; set; }
+        public DbSet<tblpacemakerunittype> tblpacemakerunittype { get; set; }
     }
 }
