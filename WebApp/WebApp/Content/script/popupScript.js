@@ -13,7 +13,7 @@
 function setOnClickListener()
 {
     $(".graphButton").click(function (test) {
-        console.log("test0");
+        //console.log("test0");
         var typeName = 'VF'
         var i = 1;
         var o;
@@ -58,7 +58,7 @@ function makeTable(graphModel)
     var graphData = document.getElementById('graphData');
 
 
-    console.log(graphModel);
+    //console.log(graphModel);
 
     var result = "";
     

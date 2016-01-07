@@ -883,6 +883,57 @@
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="10977557-43dc-4a5f-b784-a6dc4dcfd936" name="TransmissionController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="96bbf3b0-7b6c-47a9-90c9-f6be56611c53" />
+        <ownedAttributesInternal>
+          <property Id="2a8747dc-b7ea-4ef2-8dd8-73519f41753e" name="db" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e93daade-eaed-4c2a-93a6-b98fb96711f4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1524cf43-9342-40d0-b317-b53fb1bbecf6" LastKnownName="pacemakerdataEntities" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="8e5bb960-91cc-4de9-8968-a26c7a70e5b3" name="Index" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3840a61a-d71f-436a-ab35-30223cb7fd28" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="33ee3862-b9fa-4a65-8b72-34936adef300" name=")" direction="In" isUnique="false">
+                  <elementDefinition Id="ed97d3fb-53b4-4274-a3b2-0aeaae1f69eb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5218589b-5ea7-4e30-823e-b8a5d0b454ee" LastKnownName="ActionResult (HTTP get" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f0ea4446-9813-4450-a62f-8e941f4d61d8" name="Index" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="eed3fa42-02ab-4443-bf58-909e0d58429a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6819f362-6c64-4dc9-ad3d-7bcf5255dac9" name="IEnumerable&lt;HttpPostedFileBase&gt; files)" direction="In" isUnique="false">
+                  <elementDefinition Id="dc911f2b-16a4-435e-9bb7-8825055469f5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5ef1b50d-55c0-4216-851f-ba7d27bff069" LastKnownName="ActionResult (HTTP post" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="5218589b-5ea7-4e30-823e-b8a5d0b454ee" name="ActionResult (HTTP get" isAbstract="false" isLeaf="false" cachedFullName="ActionResult (HTTP get">
+        <elementDefinition Id="1a0fc092-12d9-47f3-9cf1-d3e09af57a11" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5ef1b50d-55c0-4216-851f-ba7d27bff069" name="ActionResult (HTTP post" isAbstract="false" isLeaf="false" cachedFullName="ActionResult (HTTP post">
+        <elementDefinition Id="a198020c-419c-4900-b3a1-7fac6b29a90a" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="516aac17-c69d-41fd-b7b0-e0fefc42adb4" name="UMLModels">
     <elementDefinition Id="eb830b44-f5fa-44f0-9d7b-eb7d83ae48ad" />
