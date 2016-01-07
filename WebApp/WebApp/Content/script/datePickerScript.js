@@ -62,7 +62,8 @@ function updateTable(newModel)
     for (var i = 0; i < newModel.length; i++) {
         html += '<tr class="trData">' +
                     '<td class="graphInputButton">' +
-                        '<input value="' + newModel[i].EpisodeType + '" type="image" class="graphButton" img src="http://localhost:5187/Content/img/graph_icon.png" title="Show graph"></td>' +
+                        '<input value="' + newModel[i].EpisodeType + '" type="image" class="graphButton" img src="http://localhost:5187/Content/img/graph_icon.png"' +
+                        'title="Show graph"></td>' +
                     '<td class="episodeType">' + newModel[i].EpisodeType + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].Transmissions + '</td>' +
                     '<td class="cellWithNumber">' + newModel[i].ProcentTransmission + ' %</td>' +
@@ -105,6 +106,15 @@ function getEpisodeList() {
     var episodeList = [];
     //console.log(episodes.length)
     if (episodes.length > 0) {
+        while (i < episodes.length) {
+            //console.log(episodes[i].value);
+            episodeList.push(episodes[i].value);
+            i++;
+        }
+    }
+    else
+    {
+        episodes = document.querySelectorAll(".episodeCheckbox");
         while (i < episodes.length) {
             //console.log(episodes[i].value);
             episodeList.push(episodes[i].value);

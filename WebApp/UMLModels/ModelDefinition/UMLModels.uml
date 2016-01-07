@@ -1931,6 +1931,98 @@
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="96bbf3b0-7b6c-47a9-90c9-f6be56611c53"
+        name="TransmissionController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="e93daade-eaed-4c2a-93a6-b98fb96711f4"
+            name="db"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ffb48735-be1c-43da-ba8e-ad675c7ae84d"
+                LastKnownName="pacemakerdataEntities"
+                LastKnownLocation="UMLModels.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3840a61a-d71f-436a-ab35-30223cb7fd28"
+            name="Index"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed97d3fb-53b4-4274-a3b2-0aeaae1f69eb"
+                  name=")"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="1a0fc092-12d9-47f3-9cf1-d3e09af57a11"
+                      LastKnownName="ActionResult (HTTP get"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eed3fa42-02ab-4443-bf58-909e0d58429a"
+            name="Index"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dc911f2b-16a4-435e-9bb7-8825055469f5"
+                  name="IEnumerable&lt;HttpPostedFileBase&gt; files)"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="a198020c-419c-4900-b3a1-7fac6b29a90a"
+                      LastKnownName="ActionResult (HTTP post"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="1a0fc092-12d9-47f3-9cf1-d3e09af57a11"
+        name="ActionResult (HTTP get" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a198020c-419c-4900-b3a1-7fac6b29a90a"
+        name="ActionResult (HTTP post" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

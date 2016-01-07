@@ -36,7 +36,7 @@ namespace WebApp.Controllers
                 return View("Error");
             }
 
-            foreach (var episode in dbModel.pacemakerdataview.Where(m => m.episodeName != "").Select(m => m.episodeName).Distinct())
+            foreach (var episode in dbModel.pacemakerdataview.Where(m => !(m.episodeName == "" || m.episodeName == "None") ).Select(m => m.episodeName).Distinct())
             {
                 var tempObj = new ViewModels.EpisodeViewModel();
 
@@ -109,13 +109,16 @@ namespace WebApp.Controllers
             string db = dateList[0];
             string de = dateList[1];
             string[] patientList = patientsChecked.Split('|');
+            int transmissions;
 
             List<ViewModels.EpisodeViewModel> eMList = new List<ViewModels.EpisodeViewModel>();
 
             if (dbModel.pacemakerdataview != null)
             {
+                transmissions = dbModel.pacemakerdataview.Where(m => (m.transmissionDate.CompareTo(db) >= 0 && m.transmissionDate.CompareTo(de) <= 0) &&
+                    patientList.Contains(m.firstName + " " + m.lastName)).Select(m => m.ID).Distinct().Count();
                 var model = dbModel.pacemakerdataview.Where(m => episodeList.Contains(m.episodeName) &&
-                    (m.episodeDate.CompareTo(db) >= 0 &&  m.episodeDate.CompareTo(de) <= 0) &&
+                    (m.transmissionDate.CompareTo(db) >= 0 && m.transmissionDate.CompareTo(de) <= 0) &&
                     patientList.Contains(m.firstName + " " + m.lastName));
 
                 foreach (var episode in model.Where(m => m.episodeName != "").Select(m => m.episodeName).Distinct())
@@ -129,16 +132,15 @@ namespace WebApp.Controllers
 
                 foreach (var item in eMList)
                 {
-                    item.TotalTransmissions = model.Select(m => m.ID).Distinct().Count();
+                    item.TotalTransmissions = transmissions;
                     item.Transmissions = model.Where(modelItem => modelItem.episodeName == item.EpisodeType)
                                                 .Select(modelItem => modelItem.ID).Distinct().Count();
 
                     item.ProcentTransmission = Helpers.ModelHelpers.calcProcent(
                         model.Where(modelItem => modelItem.episodeName == item.EpisodeType).Select(modelItem => modelItem.ID).Distinct().Count(),
-                        model.Select(m => m.ID).Distinct().Count());
+                        transmissions);
                 }
             }
-
             return Json(eMList, JsonRequestBehavior.AllowGet);
         }
 
@@ -149,7 +151,7 @@ namespace WebApp.Controllers
 
             if (dbModel.pacemakerdataview != null)
             {
-                foreach (var episode in dbModel.pacemakerdataview.Where(m => m.episodeName != "").Select(m => m.episodeName).Distinct())
+                foreach (var episode in dbModel.pacemakerdataview.Where(m => !(m.episodeName == "" || m.episodeName == "None") ).Select(m => m.episodeName).Distinct())
                 {
                     result.Add(episode);
                 }
