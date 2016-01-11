@@ -200,15 +200,15 @@ namespace WebApp.Controllers
 
             if (dbModel.pacemakerdataview != null)
             {
-                var data = dbModel.pacemakerdataview.Where(m => m.episodeDate.CompareTo(db) >= 0 && 
-                                                            m.episodeDate.CompareTo(de) <= 0 && 
+                var data = dbModel.pacemakerdataview.Where(m => m.transmissionDate.CompareTo(db) >= 0 && 
+                                                            m.transmissionDate.CompareTo(de) <= 0 && 
                                                             m.episodeName == episodeType && 
                                                             patientList.Contains(m.firstName + " " + m.lastName)
                                                             );
 
                 if (data.Count() > 0)
                 {
-                    result.NewestYear = data.Max(m => m.episodeDate);
+                    result.NewestYear = data.Max(m => m.transmissionDate);
                     result.NewestYear = result.NewestYear.Substring(0, 4);
                 }
                 else
@@ -220,10 +220,10 @@ namespace WebApp.Controllers
 
                 foreach (var model in data)
                 {
-                    if (model.episodeDate.Substring(0, 4) == result.NewestYear && !transmissionId.Contains(model.ID))
+                    if (model.transmissionDate.Substring(0, 4) == result.NewestYear && !transmissionId.Contains(model.ID))
                     {
                         transmissionId.Add(model.ID);
-                        switch (model.episodeDate.Substring(4, 2))
+                        switch (model.transmissionDate.Substring(4, 2))
                         {
                             case "01":
                                 result.Jan++;
