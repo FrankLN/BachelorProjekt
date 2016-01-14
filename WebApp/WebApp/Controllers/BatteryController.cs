@@ -8,7 +8,7 @@ namespace WebApp.Controllers
 {
     public class BatteryController : Controller
     {
-        private Models.pacemakerdataEntities dbModel = new Models.pacemakerdataEntities();
+        private Models.PacemakerDatabaseEntities dbModel = new Models.PacemakerDatabaseEntities();
 
         public BatteryController()
         {

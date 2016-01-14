@@ -9,7 +9,7 @@ namespace WebApp.Controllers
 {
     public class EpisodeController : Controller
     {
-        private Models.pacemakerdataEntities dbModel = new WebApp.Models.pacemakerdataEntities();
+        private Models.PacemakerDatabaseEntities dbModel = new WebApp.Models.PacemakerDatabaseEntities();
         
         
         public EpisodeController()

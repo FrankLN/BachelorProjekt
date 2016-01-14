@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PacemakerDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="linktransmissionepisode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transmissionID" Type="int" Nullable="false" />
+          <Property Name="episodeID" Type="int" Nullable="false" />
+          <Property Name="episodeDate" Type="varchar" MaxLength="14" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblepisodetype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="episodeName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpacemakerunit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patientID" Type="int" Nullable="false" />
+          <Property Name="pacemakerUnitTypeID" Type="int" Nullable="false" />
+          <Property Name="dateOfImplantation" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="pacemakerSerialNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="estimatedDaysOfServiceLeft" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpacemakerunittype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpatient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateOfBirth" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbltransmission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patientID" Type="int" Nullable="false" />
+          <Property Name="transmissionDate" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="PMBatteryPercent" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PacemakerDatabase.dbo.batteristatistikview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="batteristatistikview">
+          <Key>
+            <PropertyRef Name="dateOfImplantation" />
+            <PropertyRef Name="pacemakerSerialNumber" />
+            <PropertyRef Name="estimatedDaysOfServiceLeft" />
+          </Key>
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="dateOfImplantation" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="pacemakerSerialNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="estimatedDaysOfServiceLeft" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PacemakerDatabase.dbo.pacemakerdataview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pacemakerdataview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="transmissionDate" />
+          </Key>
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="dateOfBirth" Type="varchar" MaxLength="50" />
+          <Property Name="episodeName" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="transmissionDate" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="episodeDate" Type="varchar" MaxLength="14" />
+          <Property Name="pacemakerSerialNumber" Type="varchar" MaxLength="10" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="PacemakerDatabaseModelStoreContainer">
+          <EntitySet Name="linktransmissionepisode" EntityType="Self.linktransmissionepisode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblepisodetype" EntityType="Self.tblepisodetype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblpacemakerunit" EntityType="Self.tblpacemakerunit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblpacemakerunittype" EntityType="Self.tblpacemakerunittype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblpatient" EntityType="Self.tblpatient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbltransmission" EntityType="Self.tbltransmission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="batteristatistikview" EntityType="Self.batteristatistikview" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[batteristatistikview].[firstName] AS [firstName], 
+[batteristatistikview].[lastName] AS [lastName], 
+[batteristatistikview].[dateOfImplantation] AS [dateOfImplantation], 
+[batteristatistikview].[pacemakerSerialNumber] AS [pacemakerSerialNumber], 
+[batteristatistikview].[estimatedDaysOfServiceLeft] AS [estimatedDaysOfServiceLeft]
+FROM [dbo].[batteristatistikview] AS [batteristatistikview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pacemakerdataview" EntityType="Self.pacemakerdataview" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[pacemakerdataview].[firstName] AS [firstName], 
+[pacemakerdataview].[lastName] AS [lastName], 
+[pacemakerdataview].[dateOfBirth] AS [dateOfBirth], 
+[pacemakerdataview].[episodeName] AS [episodeName], 
+[pacemakerdataview].[ID] AS [ID], 
+[pacemakerdataview].[transmissionDate] AS [transmissionDate], 
+[pacemakerdataview].[episodeDate] AS [episodeDate], 
+[pacemakerdataview].[pacemakerSerialNumber] AS [pacemakerSerialNumber], 
+[pacemakerdataview].[name] AS [name], 
+[pacemakerdataview].[type] AS [type]
+FROM [dbo].[pacemakerdataview] AS [pacemakerdataview]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PacemakerDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="linktransmissionepisode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transmissionID" Type="Int32" Nullable="false" />
+          <Property Name="episodeID" Type="Int32" Nullable="false" />
+          <Property Name="episodeDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblepisodetype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="episodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpacemakerunit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patientID" Type="Int32" Nullable="false" />
+          <Property Name="pacemakerUnitTypeID" Type="Int32" Nullable="false" />
+          <Property Name="dateOfImplantation" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pacemakerSerialNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estimatedDaysOfServiceLeft" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpacemakerunittype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpatient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbltransmission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patientID" Type="Int32" Nullable="false" />
+          <Property Name="transmissionDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PMBatteryPercent" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="batteristatistikview">
+          <Key>
+            <PropertyRef Name="dateOfImplantation" />
+            <PropertyRef Name="pacemakerSerialNumber" />
+            <PropertyRef Name="estimatedDaysOfServiceLeft" />
+          </Key>
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateOfImplantation" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pacemakerSerialNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estimatedDaysOfServiceLeft" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pacemakerdataview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="transmissionDate" />
+          </Key>
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="episodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="transmissionDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="episodeDate" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="pacemakerSerialNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PacemakerDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="linktransmissionepisode" EntityType="Self.linktransmissionepisode" />
+          <EntitySet Name="tblepisodetype" EntityType="Self.tblepisodetype" />
+          <EntitySet Name="tblpacemakerunit" EntityType="Self.tblpacemakerunit" />
+          <EntitySet Name="tblpacemakerunittype" EntityType="Self.tblpacemakerunittype" />
+          <EntitySet Name="tblpatient" EntityType="Self.tblpatient" />
+          <EntitySet Name="tbltransmission" EntityType="Self.tbltransmission" />
+          <EntitySet Name="batteristatistikview" EntityType="Self.batteristatistikview" />
+          <EntitySet Name="pacemakerdataview" EntityType="Self.pacemakerdataview" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PacemakerDatabaseModelStoreContainer" CdmEntityContainer="PacemakerDatabaseEntities">
+          <EntitySetMapping Name="linktransmissionepisode">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.linktransmissionepisode">
+              <MappingFragment StoreEntitySet="linktransmissionepisode">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="transmissionID" ColumnName="transmissionID" />
+                <ScalarProperty Name="episodeID" ColumnName="episodeID" />
+                <ScalarProperty Name="episodeDate" ColumnName="episodeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblepisodetype">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.tblepisodetype">
+              <MappingFragment StoreEntitySet="tblepisodetype">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="episodeName" ColumnName="episodeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpacemakerunit">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.tblpacemakerunit">
+              <MappingFragment StoreEntitySet="tblpacemakerunit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+                <ScalarProperty Name="pacemakerUnitTypeID" ColumnName="pacemakerUnitTypeID" />
+                <ScalarProperty Name="dateOfImplantation" ColumnName="dateOfImplantation" />
+                <ScalarProperty Name="pacemakerSerialNumber" ColumnName="pacemakerSerialNumber" />
+                <ScalarProperty Name="estimatedDaysOfServiceLeft" ColumnName="estimatedDaysOfServiceLeft" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpacemakerunittype">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.tblpacemakerunittype">
+              <MappingFragment StoreEntitySet="tblpacemakerunittype">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpatient">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.tblpatient">
+              <MappingFragment StoreEntitySet="tblpatient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbltransmission">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.tbltransmission">
+              <MappingFragment StoreEntitySet="tbltransmission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+                <ScalarProperty Name="transmissionDate" ColumnName="transmissionDate" />
+                <ScalarProperty Name="PMBatteryPercent" ColumnName="PMBatteryPercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="batteristatistikview">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.batteristatistikview">
+              <MappingFragment StoreEntitySet="batteristatistikview">
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="dateOfImplantation" ColumnName="dateOfImplantation" />
+                <ScalarProperty Name="pacemakerSerialNumber" ColumnName="pacemakerSerialNumber" />
+                <ScalarProperty Name="estimatedDaysOfServiceLeft" ColumnName="estimatedDaysOfServiceLeft" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacemakerdataview">
+            <EntityTypeMapping TypeName="PacemakerDatabaseModel.pacemakerdataview">
+              <MappingFragment StoreEntitySet="pacemakerdataview">
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="episodeName" ColumnName="episodeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="transmissionDate" ColumnName="transmissionDate" />
+                <ScalarProperty Name="episodeDate" ColumnName="episodeDate" />
+                <ScalarProperty Name="pacemakerSerialNumber" ColumnName="pacemakerSerialNumber" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -108,23 +108,6 @@
     <Content Include="Content\style\tableStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\PacemakerDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PacemakerDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\PacemakerDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PacemakerDB.edmx</DependentUpon>
-      <LastGenOutput>PacemakerDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\PacemakerDB.edmx.diagram">
-      <DependentUpon>PacemakerDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\PacemakerDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PacemakerDB.edmx</DependentUpon>
-      <LastGenOutput>PacemakerDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Views\Episode\Index.cshtml" />
   </ItemGroup>
@@ -140,43 +123,43 @@
     </Compile>
     <Compile Include="Helpers\TooltipAttribute.cs" />
     <Compile Include="Models\batteristatistikview.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\linktransmissionepisode.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Local.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Local.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Local.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Local.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Local.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\pacemakerdataview.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PacemakerDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PacemakerDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PacemakerDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PacemakerDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PacemakerDB.edmx</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblepisodetype.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblpacemakerunit.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblpacemakerunittype.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblpatient.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbltransmission.cs">
-      <DependentUpon>PacemakerDB.tt</DependentUpon>
+      <DependentUpon>Local.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BatteryGraphViewModel.cs" />
     <Compile Include="ViewModels\BatteryJSViewModel.cs" />
@@ -194,6 +177,23 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Transmission\Index.cshtml" />
     <Content Include="Views\Transmission\Succes.cshtml" />
+    <EntityDeploy Include="Models\Local.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Local.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Local.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Local.edmx</DependentUpon>
+      <LastGenOutput>Local.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Local.edmx.diagram">
+      <DependentUpon>Local.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Local.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Local.edmx</DependentUpon>
+      <LastGenOutput>Local.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

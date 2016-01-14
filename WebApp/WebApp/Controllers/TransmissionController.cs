@@ -10,7 +10,7 @@ namespace WebApp.Controllers
 {
     public class TransmissionController : Controller
     {
-        WebApp.Models.pacemakerdataEntities db = new Models.pacemakerdataEntities();
+        WebApp.Models.PacemakerDatabaseEntities db = new Models.PacemakerDatabaseEntities();
 
         // GET: Transmission
         [HttpGet]

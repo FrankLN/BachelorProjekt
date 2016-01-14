@@ -16,6 +16,7 @@ namespace WebApp.Models
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public string dateOfBirth { get; set; }
         public string episodeName { get; set; }
         public int ID { get; set; }
         public string transmissionDate { get; set; }
@@ -23,6 +24,5 @@ namespace WebApp.Models
         public string pacemakerSerialNumber { get; set; }
         public string name { get; set; }
         public string type { get; set; }
-        public string dateOfBirth { get; set; }
     }
 }
